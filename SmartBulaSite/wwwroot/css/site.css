@@ -1,10 +1,13 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap');
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 body {
@@ -16,7 +19,7 @@ body {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #ea1a1a;
 }
 
 .btn-primary {
@@ -66,9 +69,22 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Magra', sans-serif;
 }
+
+
+h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+     color:white;
+ 
+} 
 .footer {
   position: absolute;
   bottom: 0;
@@ -76,29 +92,6 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -145,3 +138,5 @@ body {
     max-width: 100%;
 }
 
+label {
+}

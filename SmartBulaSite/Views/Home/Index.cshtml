@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 <body class="text-center">
-    <h1 class="display-4">Descubra que medicamento é esse!</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>Descubra que medicamento é esse!</h1>
+    <h3>Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
+    <br />
+    <br />
+    <br />
     <input type="text" />
     <button>Procurar</button>
     <br />
@@ -11,11 +19,21 @@
     <br />
     <br />
 
-    <label class="picture" for="picture__input" tabIndex="0">
-        <span class="picture__image"></span>
-    </label>
 
-    <input type="file" name="picture__input" id="picture__input">
+
+    <center>
+        <form method="post" enctype="multipart/form-data">
+            <br />
+            <input type="file" name="arquivo">
+            <br />
+
+            <label class="picture" for="picture__input" tabIndex="0">
+                <span class="picture__image"></span>
+                <input type="file" name="picture__input" id="picture__input">
+            </label>
+
+        </form>
+    </center>
 
 </body>
 
