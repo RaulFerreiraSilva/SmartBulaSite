@@ -20,7 +20,7 @@ namespace SmartBulaSite.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(Usuario.Listar());
         }
 
         public IActionResult Privacy()

@@ -9,31 +9,50 @@
 <h1>Listar</h1>
 
 <table class="table">
-    <thead>
+    <tdead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id_usuario)
+                @Html.DisplayNameFor(model => model.Id_Usuario)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.SobreNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
         </tr>
-    </thead>
+    </tdead>
     <tbody>
         @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = item.Codigo }) |
-                    @Html.ActionLink("Deletar", "Excluir", new { id = item.Codigo })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SobreNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
