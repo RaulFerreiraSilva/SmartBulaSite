@@ -4,31 +4,31 @@
 // Write your JavaScript code.
 
 
-const inputFile = document.querySelector("#picture__input");
-const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "Choose an image";
-pictureImage.innerHTML = pictureImageTxt;
-
-inputFile.addEventListener("change", function (e) {
-    const inputTarget = e.target;
-    const file = inputTarget.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function (e) {
-            const readerTarget = e.target;
-
-            const img = document.createElement("img");
-            img.src = readerTarget.result;
-            img.classList.add("picture__img");
-
-            pictureImage.innerHTML = "";
-            pictureImage.appendChild(img);
-        });
-
-        reader.readAsDataURL(file);
+$(document).bind("dragover", function (e) {
+    var dropZone = $(".zone"),
+        timeout = window.dropZoneTimeout;
+    if (!timeout) {
+        dropZone.addClass("in");
     } else {
-        pictureImage.innerHTML = pictureImageTxt;
+        clearTimeout(timeout);
     }
+    var found = false,
+        node = e.target;
+    do {
+        if (node === dropZone[0]) {
+            found = true;
+            break;
+        }
+        node = node.parentNode;
+    } while (node != null);
+    if (found) {
+        dropZone.addClass("hover");
+    } else {
+        dropZone.removeClass("hover");
+    }
+    window.dropZoneTimeout = setTimeout(function () {
+        window.dropZoneTimeout = null;
+        dropZone.removeClass("in hover");
+    }, 100);
 });
+
