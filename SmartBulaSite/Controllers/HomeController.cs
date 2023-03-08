@@ -32,34 +32,6 @@ namespace SmartBulaSite.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Buscar(string nome)
-        {
-            foreach (IFormFile arq in Request.Form.Files)
-            {
-                string tipoArquivo = arq.ContentType;
-                string extensao = System.IO.Path.GetExtension(arq.FileName);
-
-                if (tipoArquivo.Contains("image") || tipoArquivo.Contains("audio"))
-                {//se for imagem eu vou gravar no banco
-                    MemoryStream s = new MemoryStream();
-                    arq.CopyTo(s);
-                    byte[] bytesArquivo = s.ToArray();
-
-                    Usuario.Buscar();
-                }
-                else
-                {
-                    //salvar no hd
-                    FileStream stream = new FileStream("C:\\Nova Pasta\\" + nome + extensao,
-                        FileMode.Create);
-                    arq.CopyTo(stream);
-                    stream.Close();
-                }
-            }
-            return RedirectToAction("buscar");
-        }
-
         public IActionResult Privacy()
         {
             return View();

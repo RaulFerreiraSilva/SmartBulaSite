@@ -23,7 +23,7 @@ namespace SmartBulaSite.Controllers
     public class BuscaController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Listar()
+        public IActionResult Buscar()
         {
             foreach (IFormFile arq in Request.Form.Files)
             {

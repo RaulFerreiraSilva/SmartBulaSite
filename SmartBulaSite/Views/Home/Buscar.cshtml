@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Buscar";
+}
+
+<p>@TempData["json"]</p>
+
+<form method="post" enctype="multipart/form-data">
+    Nome: <input id="codigo" type="text" name="nome" />
+    <br />
+    <input id="descricao" type="file" name="arquivo" />
+    <br />
+    <input id="Pesq" type="submit" value="SALVAR" />
+</form>
+
+<script>
+    $('#Pesq').click(function () {
+
+        var key = "6c193a3b7d2747ae8fc02707a665fb7f";
+        var url = "https://scanremedio.cognitiveservices.azure.com/vision/v3.2/ocr";
+        var cod =$("#codigo").val();
+        var desc = $("#descricao").val();
+        var image = "{https://raw.githubusercontent.com/MicrosoftLearning/AI-900-AIFundamentals/main/data/vision/advert.jpg}"
+
+        console.log(image)
+
+        $.ajaxSetup({
+            headers: {
+                'Content-Type': 'application/json',
+                'Ocp-Apim-Subscription-Key': key
+            }
+        })
+
+        $.post(url, { url: image }, function (data) {
+            $('#resultado').append($("<table id='tabResul'><tr><th>Cod</th><th>Desc</th></tr></table>"))
+            $.each(data, function (index, value) {
+                $('#tabResul').append($("<tr><td>" + value["Codigo"] + "</td><td>" + value["Descricao"] + "</td></tr>"));
+            });
+        });
+    });
+</script>
+
