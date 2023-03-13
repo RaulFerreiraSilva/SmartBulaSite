@@ -1,15 +1,26 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap');
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
+
+body {
+    background-image: url(../images/fundo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #ea1a1a;
 }
 
 .btn-primary {
@@ -59,9 +70,23 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Magra', sans-serif;
 }
+
+
+#tituloHome {
+    font-size: 4.5rem;
+    color: white;
+    margin-top: 5rem;
+    
+}
+
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+} 
 .footer {
   position: absolute;
   bottom: 0;
@@ -69,3 +94,115 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+
+/*// area de arrastar a img //*/ 
+#picture__input {
+    display: none;
+}
+
+#textFile {
+    background-color: #b4d2d9;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 16rem;
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    padding: 10px;
+}
+
+#iconFile {
+    font-size: 2.5rem;
+}
+
+.zone {
+    opacity : 65%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #1e3c40;
+    width: 50rem;
+    height: 15rem;
+    border: 2px dashed #b4d2d9;
+    border-radius: 0.8rem;
+    text-align: center;
+    color: #B4D2D9;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
+
+
+}
+
+#inputps {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#btnSearch, #inputps {
+    padding: 1rem;
+    margin-bottom: 20rem;
+    margin-top: 5rem;
+    border-radius: 0.8rem;
+    border: none;
+
+   
+}
+#btnSearch {
+    background: #b4d2d9;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+    #btnSearch:hover {
+       
+        background-color: #698c8c;
+        transition: 0.5s;
+    }
+
+    i {
+        text-align: center;
+        font-size: 10em;
+        color: #fff;
+        margin-top: 50px;
+    }
+  
+  
+
+    .picture:hover {
+        color: #777;
+        background: #ccc;
+    }
+
+    .picture:active {
+        border-color: turquoise;
+        color: turquoise;
+        background: #eee;
+    }
+
+    .picture:focus {
+        color: #777;
+        background: #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+.picture__img {
+    max-width: 100%;
+}
+
+#textFile {
+   /* //area de selecionar a img // background-color: #b4d2d9;//
+    //azul claro border-radius: 10px;*/
+    margin: auto;
+    margin-top: 16rem;
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    padding: 10px;
+}
+
