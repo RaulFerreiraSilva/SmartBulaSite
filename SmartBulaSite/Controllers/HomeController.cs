@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using SmartBulaSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +23,12 @@ namespace SmartBulaSite.Controllers
 
         public IActionResult Index()
         {
+            return View(Usuario.Listar());
+        }
+
+        public IActionResult Buscar()
+        {
+
             return View();
         }
 
