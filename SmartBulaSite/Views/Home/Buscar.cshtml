@@ -4,35 +4,39 @@
 
 <p>@TempData["json"]</p>
 
-<form method="post" enctype="multipart/form-data">
-    Nome: <input id="codigo" type="text" name="nome" />
-    <br />
-    <input id="descricao" type="file" name="arquivo" />
-    <br />
-    <input id="Pesq" type="submit" value="SALVAR" />
-</form>
+    <input type="text" id="cod" />
+    <button id="Pesq"> Salvar </button>
+
 
 <script>
-    $('#Pesq').click(function () {
+    $(document).ready(function () {
+        $("#Pesq").click(function () {
+            var cod = document.getElementById("cod").value
 
-        var key = "6c193a3b7d2747ae8fc02707a665fb7f";
-        var url = "https://scanremedio.cognitiveservices.azure.com/vision/v3.2/ocr";
-        var cod = $("#codigo").val();
-        var desc = $("#descricao").val();
-        var image = "https://raw.githubusercontent.com/MicrosoftLearning/AI-900-AIFundamentals/main/data/vision/advert.jpg"
+            var image = {url: cod}
 
-        console.log(image)
-
-        $.ajaxSetup({
-            headers: {
-                'contentType': "application/json",
-                'Accept': "charset=utf-8",
-                'Ocp-Apim-Subscription-Key': key
-            }
-        })
-
-        $.post(url, { url: image }, function (data) {
-            console.log(data)
+            $.ajax({
+                type: "POST",
+                url: "https://scanremedio.cognitiveservices.azure.com/vision/v4/ocr",
+                data: JSON.stringify(image),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Ocp-Apim-Subscription-Key': "6c193a3b7d2747ae8fc02707a665fb7f"
+                },
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    alert("Sucesso")
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert(e)
+                },
+                done: function (e) {
+                    console.log(e);
+                    alert(e)
+                }
+            });
         });
     });
 </script>

@@ -28,7 +28,6 @@ namespace SmartBulaSite.Controllers
 
         public IActionResult Buscar()
         {
-
             return View();
         }
 
