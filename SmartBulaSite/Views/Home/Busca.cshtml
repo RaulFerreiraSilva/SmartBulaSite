@@ -5,19 +5,24 @@
 <p>@TempData["json"]</p>
 
     <input type="text" id="cod" />
+    <input type="text" id="Texto" />
     <button id="Pesq"> Salvar </button>
 
-
 <script>
+
+ 
+
+
+
     $(document).ready(function () {
         $("#Pesq").click(function () {
-            var cod = document.getElementById("cod").value
-
-            var image = {url: cod}
+            var url = document.getElementById("cod").value
+            document.cookie = `chave=${cod}`;
+            var image = {url}
 
             $.ajax({
-                type: "POST",
-                url: "https://scanremedio.cognitiveservices.azure.com/vision/v4/ocr",
+                type: "GET",
+                url: "https://scanremedio.cognitiveservices.azure.com/vision/v3.2/ocr/read/analyzeResults/",
                 data: JSON.stringify(image),
                 headers: {
                     'Content-Type': 'application/json',

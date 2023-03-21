@@ -15,36 +15,11 @@ namespace SmartBulaSite.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Listar() {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Listar()));
+        public IActionResult Logar( String userName, String password) {
+            return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
         }
     }
 
-    public class BuscaController : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult Buscar()
-        {
-            foreach (IFormFile arq in Request.Form.Files)
-            {
-                string tipoArquivo = arq.ContentType;
-                string extensao = System.IO.Path.GetExtension(arq.FileName);
 
-                if (tipoArquivo.Contains("image") || tipoArquivo.Contains("audio"))
-                {
-                    MemoryStream s = new MemoryStream();
-                    arq.CopyTo(s);
-                    byte[] bytesArquivo = s.ToArray();
-
-                    
-                }
-                else
-                {
-                    
-                }
-            }
-            return RedirectToAction("index");
-        }
-    }
 
 }

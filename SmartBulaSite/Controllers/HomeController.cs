@@ -23,12 +23,17 @@ namespace SmartBulaSite.Controllers
 
         public IActionResult Index()
         {
-            return View(Usuario.Listar());
+            return View();
         }
 
-        public IActionResult Buscar()
+        public IActionResult Busca()
         {
             return View();
+        }
+
+        public IActionResult Buscar(int id)
+        {
+            return View(Remedio.BuscarRemedio(id));
         }
 
         public IActionResult Privacy()
