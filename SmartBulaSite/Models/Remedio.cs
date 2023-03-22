@@ -29,14 +29,14 @@ namespace SmartBulaSite.Models
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
         public string PrincipioAtivo { get => principioAtivo; set => principioAtivo = value; }
 
-        internal static Remedio BuscarRemedio(int id)
+        internal static Remedio BuscarRemedio(string principio_ativo)
         {
             try
             {
                 con.Open();
                 MySqlCommand qry = new MySqlCommand(
-                    "SELECT * FROM medicamento WHERE id_Medicamento = @id_Medicamento", con);
-                qry.Parameters.AddWithValue("@id_Medicamento", id);
+                    "SELECT * FROM medicamento WHERE principio_ativo = @principio_ativo", con);
+                qry.Parameters.AddWithValue("@principio_ativo", principio_ativo);
 
                 Remedio remedio = null;
 

@@ -31,9 +31,9 @@ namespace SmartBulaSite.Controllers
             return View();
         }
 
-        public IActionResult Buscar(int id)
+        public IActionResult Buscar(string principio_ativo)
         {
-            return View(Remedio.BuscarRemedio(id));
+            return View(Remedio.BuscarRemedio(principio_ativo));
         }
 
         public IActionResult Privacy()

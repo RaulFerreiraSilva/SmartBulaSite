@@ -13,9 +13,9 @@ namespace SmartBulaSite.Controllers
     public class RemedioController
     {
             [HttpGet]
-            public IActionResult Buscar(int id)
+            public IActionResult Buscar(string principio_ativo)
             {
-                return new JsonResult(JsonConvert.SerializeObject(Remedio.BuscarRemedio(id)));
+                return new JsonResult(JsonConvert.SerializeObject(Remedio.BuscarRemedio(principio_ativo)));
             }
     }
 }
