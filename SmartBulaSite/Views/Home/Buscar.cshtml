@@ -4,26 +4,25 @@
 
 <p>@TempData["json"]</p>
 
-    <input type="text" id="cod" />
+    <input type="file"/>
     <input type="text" id="Texto" />
     <button id="Pesq"> Salvar </button>
 
 <script>
-
- 
-
-
-
     $(document).ready(function () {
         $("#Pesq").click(function () {
-            var url = document.getElementById("cod").value
-            document.cookie = `chave=${cod}`;
-            var image = {url}
+            var fileInput = document.querySelector('input[type="file"]');
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            console.log(fileInput)
+            console.log(formData)
 
             $.ajax({
                 type: "GET",
-                url: "https://scanremedio.cognitiveservices.azure.com/vision/v3.2/ocr/read/analyzeResults/",
-                data: JSON.stringify(image),
+                url: "https://scanremedio.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read",
+                data: formData,
                 headers: {
                     'Content-Type': 'application/json',
                     'Ocp-Apim-Subscription-Key': "6c193a3b7d2747ae8fc02707a665fb7f"
