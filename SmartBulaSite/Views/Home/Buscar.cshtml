@@ -4,53 +4,11 @@
 
 <p>@TempData["json"]</p>
 
-<input type="file" id="img " />
-<input type="text" id="Texto" />
-<button id="Pesq"> Salvar </button>
-
-<script>
-    $(document).ready(function () {
-        $("#Pesq").click(function () {
-            var fileInput = document.querySelector('input[type="file"]');
-            var file = fileInput.files[0];
-            var reader = new FileReader();
-            var imgBinary = 0
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="arquivo" />
+    <br />
+    <input type="submit" value="SALVAR" />
+</form>
 
 
-            reader.addEventListener('load', () => {
-                const binaryString = reader.result; // obtém o objeto binário da imagem
-                imgBinary = new Uint8Array(Array.from(binaryString, char => char.charCodeAt(0)));
-                console.log(imgBinary);
-            });
-
-            console.log(imgBinary);
-
-            console.log(file)
-            console.log(fileInput)
-
-            $.ajax({
-                type: "POST",
-                url: "https://scanremedio.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read",
-                data: imgBinary,
-                headers: {
-                    'Content-Type': 'application/octet-stream',
-                    'Ocp-Apim-Subscription-Key': "6c193a3b7d2747ae8fc02707a665fb7f"
-                },
-                dataType: 'json',
-                success: function (res) {
-                    console.log(res);
-                    alert("Sucesso")
-                },
-                error: function (e) {
-                    console.log(e);
-                    alert(e)
-                },
-                done: function (e) {
-                    console.log(e);
-                    alert(e)
-                }
-            });
-        });
-    });
-</script>
 
