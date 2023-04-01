@@ -36,12 +36,11 @@ namespace SmartBulaSite.Controllers
             return View();
         }
 
+       
+
         [HttpPost]
         public async Task<IActionResult> Buscar(string principio_ativo)
         {
-            
-
-
             foreach (IFormFile arq in Request.Form.Files)
             {
                 string tipoArquivo = arq.ContentType;
@@ -61,7 +60,10 @@ namespace SmartBulaSite.Controllers
                     principio_ativo = "Não foi possivel encontrar o nome do remedio!";
                 }
             }
-            return View(Remedio.BuscarRemedio(principio_ativo));
+
+            TempData["Medicamento"] = principio_ativo;
+
+            return RedirectToAction("Bula", "Home");
         }
 
         static async Task<String> MakeRequest(byte[] img)
@@ -83,6 +85,13 @@ namespace SmartBulaSite.Controllers
                 string responseSucess = await response.Content.ReadAsStringAsync();
                 return responseSucess;
             }
+        }
+
+        public IActionResult Bula() {
+
+            var principioAtivo = TempData["Medicamento"].ToString();
+
+            return View(Remedio.BuscarRemedio(principioAtivo));
         }
 
         public IActionResult Privacy()
