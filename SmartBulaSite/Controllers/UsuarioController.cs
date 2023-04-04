@@ -15,9 +15,9 @@ namespace SmartBulaSite.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost("Salvar")]
-        public IActionResult Salvar(String userName, String lastName, DateTime data, String email, String password)
+        public IActionResult Salvar([FromBody]Usuario usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Salvar(userName, lastName, data, email, password)));
+            return new JsonResult(JsonConvert.SerializeObject(usuario.Salvar()));
         }
 
         [HttpGet("Logar")]

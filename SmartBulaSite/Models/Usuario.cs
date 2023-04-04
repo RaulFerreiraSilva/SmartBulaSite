@@ -11,15 +11,15 @@ namespace SmartBulaSite.Models
         static MySqlConnection con = new MySqlConnection(
             "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
         private string nome, sobreNome, email, senha;
-        private DateTime data;
+        private DateTime dataNasc;
         private int id_Usuario;
 
-        public Usuario(int id_Usuario, string nome, string sobreNome, DateTime data, string email, string senha)
+        public Usuario(int id_Usuario, string nome, string sobreNome, DateTime dataNasc, string email, string senha)
         {
             this.id_Usuario = id_Usuario;
             this.nome = nome;
             this.sobreNome = sobreNome;
-            this.data = data;
+            this.dataNasc = dataNasc;
             this.email = email;
             this.senha = senha;
         }
@@ -27,27 +27,28 @@ namespace SmartBulaSite.Models
         public int Id_Usuario { get => id_Usuario; set => id_Usuario = value; }
         public string Nome { get => nome; set => nome = value; }
         public string SobreNome { get => sobreNome; set => sobreNome = value; }
+        public DateTime DataNasc { get => dataNasc; set => dataNasc = value; }
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
-        public DateTime Data { get => data; set => data = value; }
+      
 
 
-        internal static Usuario Salvar(String userName, String lastName, DateTime data, String email, String password)
+        internal Usuario Salvar()
         {
             try
             {
                 con.Open();
                 Usuario user = null;
                 MySqlCommand qry = new MySqlCommand(
-                    "INSERT INTO usuario (nome, sobreNome, dataNasc, email, senha) VALUES(@nome, @sobreNome, @dataNasc, @email, @senha)", con);
-                qry.Parameters.AddWithValue("@nome", userName);
-                qry.Parameters.AddWithValue("@sobreNome", lastName);
-                qry.Parameters.AddWithValue("@dataNasc", data);
-                qry.Parameters.AddWithValue("@email", email);
-                qry.Parameters.AddWithValue("@senha", password);
+                    "INSERT INTO usuario (nome, sobreNome, dataNasc, email, senha) VALUES (@nome, @sobreNome, @dataNasc, @email, @senha)", con);
+                qry.Parameters.AddWithValue("@nome", this.nome);
+                qry.Parameters.AddWithValue("@sobreNome",this.sobreNome);
+                qry.Parameters.AddWithValue("@dataNasc", this.dataNasc);
+                qry.Parameters.AddWithValue("@email", this.email);
+                qry.Parameters.AddWithValue("@senha", this.senha);
 
                 qry.ExecuteNonQuery();
-                user = Logar(userName, password);
+                user = Logar(this.nome, this.senha);
                 con.Close();
                 return user;
             }
