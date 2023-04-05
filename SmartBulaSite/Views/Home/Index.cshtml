@@ -3,20 +3,18 @@
 @{
     ViewData["Title"] = "Listar";
 }
-<body class="text-center">
+<body class="center">
 
-    <h1 id="tituloHome">Descubra que medicamento é esse!</h1>
-    <h3>Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
+    <div id="home">
+        <h1 id="tituloHome">Descubra que medicamento é esse!</h1>
+        <h3 class="text-white">Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
 
-    <input id="inputps" type="text" maxlength="50" style="color: #f00; font-style: italic" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
-    <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30">
+        <input id="inputps" type="text" maxlength="50" style="color: #f00; font-style: italic" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
+        <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30">
 
 
-
-
-    <center>
         <form method="post" enctype="multipart/form-data">
-            *
+
 
             <div class="zone">
                 <p>Arraste a imagem aqui, tamanho máximo de 3MB ou selecione acima.</p>
@@ -33,8 +31,86 @@
             </div>
 
         </form>
-    </center>
+    </div>
+
+
+    <div class="wrapper">
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-prescription-bottle-medical icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Diabetes</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-pills icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Colesterol</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber"  href="">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-vial-circle-check icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Vitaminas</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber"  href="">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-teeth icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Antidepressivos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber"  href="">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i  class="fa-solid fa-head-side-cough-slash icone"  style="color: #ffffff;"></i>
+            </div>
+            <h3>Antialérgicos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber"  href="">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-notes-medical icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Analgésicos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber"  href="">SABER MAIS</a>
+        </div>
+
+    </div>
+
+
 
 </body>
+
+
 
 @* ctrl+k+d *@

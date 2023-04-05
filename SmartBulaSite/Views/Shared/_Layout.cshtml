@@ -10,7 +10,6 @@
 </head>
 <body>
     <section>
-
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container">
 
@@ -31,16 +30,17 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Contato</a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Buscar">Buscar</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Buscar">Buscar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </section>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -52,6 +52,7 @@
             &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/77b5f27565.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
