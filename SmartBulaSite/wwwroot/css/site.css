@@ -113,11 +113,6 @@ h3 {
 .zone {
     opacity: 65%;
     margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     background: #1e3c40;
     width: 50rem;
     height: 15rem;
@@ -132,6 +127,7 @@ h3 {
 
 #inputps {
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10%;
 }
 
 #btnSearch, #inputps {
@@ -153,12 +149,7 @@ h3 {
         transition: 0.5s;
     }
 
-i {
-    text-align: center;
-    font-size: 10em;
-    color: #fff;
-    margin-top: 50px;
-}
+
 
 
 
@@ -187,7 +178,7 @@ i {
     /* //area de selecionar a img // background-color: #b4d2d9;//
     //azul claro border-radius: 10px;*/
     margin: auto;
-    margin-top: 16rem;
+    margin-top: 5rem;
     width: 20rem;
     height: 4rem;
     text-align: center;
@@ -198,6 +189,7 @@ i {
 
 /*CARDS*/
 .wrapper {
+    margin-top: 10%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 310px;
