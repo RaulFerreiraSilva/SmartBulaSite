@@ -15,7 +15,7 @@ namespace SmartBulaSite.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody]Usuario usuario)
+        public IActionResult Salvar([FromBody] Usuario usuario)
         {
             return new JsonResult(JsonConvert.SerializeObject(usuario.Salvar()));
         }
@@ -27,15 +27,15 @@ namespace SmartBulaSite.Controllers
         }
 
         [HttpPut("Editar")]
-        public IActionResult Editar(int id, String userName, String lastName, DateTime data, String email, String password)
+        public IActionResult Editar([FromBody] Usuario usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Editar(id, userName, lastName, data, email, password)));
+            return new JsonResult(JsonConvert.SerializeObject(usuario.Editar()));
         }
 
         [HttpDelete("Excluir")]
-        public IActionResult Excluir(String userName, String password)
+        public IActionResult Excluir([FromBody] Usuario usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Excluir( userName, password)));
+            return new JsonResult(JsonConvert.SerializeObject(usuario.Excluir()));
         }
     }
 

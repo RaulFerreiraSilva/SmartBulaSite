@@ -33,7 +33,7 @@ namespace SmartBulaSite.Models
       
 
 
-        internal Usuario Salvar()
+        internal String Salvar()
         {
             try
             {
@@ -50,13 +50,13 @@ namespace SmartBulaSite.Models
                 qry.ExecuteNonQuery();
                 user = Logar(this.nome, this.senha);
                 con.Close();
-                return user;
+                return "Sucesso, Cadastrado";
             }
             catch (Exception e)
             {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
-                return null;
+                return "Houve um Erro: "+e;
             }
         }
 
@@ -109,60 +109,56 @@ namespace SmartBulaSite.Models
             }
         }
 
-        internal static Usuario Editar(int idUser, String userName, String lastName, DateTime data, String email, String password)
+        internal String Editar()
         {
             try
             {
                 con.Open();
                 Usuario user = null;
                 MySqlCommand qry = new MySqlCommand(
-                    "UPDATE usuario SET nome = @nome, sobreNome = @sobreNome, dataNasc = @dataNasc, email = @email, senha = @senha WHERE id_usuario = @id", con);
-                qry.Parameters.AddWithValue("@id", idUser);
-                qry.Parameters.AddWithValue("@nome", userName);
-                qry.Parameters.AddWithValue("@sobreNome", lastName);
-                qry.Parameters.AddWithValue("@dataNasc", data);
-                qry.Parameters.AddWithValue("@email", email);
-                qry.Parameters.AddWithValue("@senha", password);
+                    "UPDATE usuario SET nome = @nome, sobreNome = @sobreNome, dataNasc = @dataNasc, email = @email, senha = @senha WHERE email = @email and senha = @senha", con);
+                qry.Parameters.AddWithValue("@nome", this.nome);
+                qry.Parameters.AddWithValue("@sobreNome", this.sobreNome);
+                qry.Parameters.AddWithValue("@dataNasc", this.dataNasc);
+                qry.Parameters.AddWithValue("@email", this.email);
+                qry.Parameters.AddWithValue("@senha", this.senha);
 
                 qry.ExecuteNonQuery();
 
                 if (qry.ExecuteNonQuery() > 0)
-                    user = Logar(userName, password);
+                    user = Logar(this.nome, this.senha);
                 else
-                    return null;
+                    return "Ocorreu um Erro no edit, Usuario não encontrado";
 
                 con.Close();
-                return user;
+                return "Edit Realizado com Sucesso";
             }
             catch (Exception e)
             {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
-                return null;
+                return "Ocorreu um Erro no edit: " + e;
             }
         }
-        internal static Usuario Excluir(String userName, String password)
+        internal String Excluir()
         {
             try
             {
                 con.Open();
-
-                Usuario user = null;
-
                 MySqlCommand qry = new MySqlCommand(
                     "DELETE FROM usuario WHERE nome = @nome and senha=@senha", con);
-                qry.Parameters.AddWithValue("@nome", userName);
-                qry.Parameters.AddWithValue("@senha", password);
+                qry.Parameters.AddWithValue("@nome", this.nome);
+                qry.Parameters.AddWithValue("@sobreNome", this.sobreNome);
 
                 qry.ExecuteNonQuery();
                 con.Close();
-                return user;
+                return "Excluido com Sucesso";
             }
             catch (Exception e)
             {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
-                return null;
+                return "Houve um erro: " + e;
             }
         }
     }
