@@ -6,8 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="jQuery" Version="3.6.3" />
+    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.27.0" />
     <PackageReference Include="MySql.Data" Version="8.0.32" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ImagensBusca\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,40 @@
+﻿@model SmartBulaSite.Models.Remedio
+
+@{
+    ViewData["Title"] = "Bula";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMedicamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResumoBula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrincipioAtivo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.IdMedicamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.Bula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.ResumoBula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.PrincipioAtivo)
+            </td>
+        </tr>
+
+    </tbody>
+</table>
