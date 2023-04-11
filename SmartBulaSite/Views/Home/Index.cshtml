@@ -1,40 +1,32 @@
-﻿@model IEnumerable<SmartBulaSite.Models.Usuario>
-
-@{
-    ViewData["Title"] = "Listar";
+﻿@{
+    ViewData["Title"] = "Home";
 }
 <body class="text-center">
 
     <h1 id="tituloHome">Descubra que medicamento é esse!</h1>
     <h3>Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
 
-    <input id="inputps" type="text" maxlength="50" style="color: #f00; font-style: italic" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
-    <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30">
+    <form method="post" enctype="multipart/form-data">
+        <input id="inputps" type="text" maxlength="50" style="color: #f00; font-style: italic" name="principio_ativo" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
+        <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30" />
 
-
-
-
-    <center>
-        <form method="post" enctype="multipart/form-data">
-            *
-
+        <center>
             <div class="zone">
                 <p>Arraste a imagem aqui, tamanho máximo de 3MB ou selecione acima.</p>
             </div>
 
             <div id="textFile">
                 <div class="selectFile">
-                    <input type="file" name="files[]" id="file">
+                    <input onchange="submitform" type="file" name="files[]" id="file">
                     <!--Isso é oq abre o explorador de arquivos -->
                 </div>
             </div>
 
             <div id="dropZ">
             </div>
-
-        </form>
-    </center>
-
+        </center>
+    </form>
 </body>
+
 
 @* ctrl+k+d *@

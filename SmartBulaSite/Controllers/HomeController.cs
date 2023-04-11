@@ -29,18 +29,12 @@ namespace SmartBulaSite.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Buscar()
-        {
-            return View();
-        }
-
-       
+        }  
 
         [HttpPost]
-        public async Task<IActionResult> Buscar(string principio_ativo)
+        public async Task<IActionResult> Index(string principio_ativo)
         {
+
             foreach (IFormFile arq in Request.Form.Files)
             {
                 string tipoArquivo = arq.ContentType;
