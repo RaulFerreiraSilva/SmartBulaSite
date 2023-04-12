@@ -29,7 +29,7 @@ namespace SmartBulaSite.Controllers
         public IActionResult Index()
         {
             return View();
-        }  
+        }
 
         [HttpPost]
         public async Task<IActionResult> Index(string principio_ativo)
@@ -81,11 +81,15 @@ namespace SmartBulaSite.Controllers
             }
         }
 
-        public IActionResult Bula() {
+        public IActionResult Bula()
+        {
+            if (TempData["Medicamento"] != null)
+            {
+                var principioAtivo = TempData["Medicamento"].ToString();
+                return View(Remedio.BuscarRemedio(principioAtivo));
+            }
 
-            var principioAtivo = TempData["Medicamento"].ToString();
-
-            return View(Remedio.BuscarRemedio(principioAtivo));
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()
