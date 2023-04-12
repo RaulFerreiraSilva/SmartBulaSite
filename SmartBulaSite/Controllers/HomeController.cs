@@ -31,16 +31,10 @@ namespace SmartBulaSite.Controllers
             return View();
         }
 
-        public IActionResult Buscar()
-        {
-            return View();
-        }
-
-       
-
         [HttpPost]
-        public async Task<IActionResult> Buscar(string principio_ativo)
+        public async Task<IActionResult> Index(string principio_ativo)
         {
+
             foreach (IFormFile arq in Request.Form.Files)
             {
                 string tipoArquivo = arq.ContentType;
@@ -87,11 +81,15 @@ namespace SmartBulaSite.Controllers
             }
         }
 
-        public IActionResult Bula() {
+        public IActionResult Bula()
+        {
+            if (TempData["Medicamento"] != null)
+            {
+                var principioAtivo = TempData["Medicamento"].ToString();
+                return View(Remedio.BuscarRemedio(principioAtivo));
+            }
 
-            var principioAtivo = TempData["Medicamento"].ToString();
-
-            return View(Remedio.BuscarRemedio(principioAtivo));
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()
