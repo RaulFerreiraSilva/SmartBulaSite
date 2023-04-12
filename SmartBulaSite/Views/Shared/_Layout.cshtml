@@ -11,14 +11,14 @@
 <body>
     <section>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark  ">
-            <div class="container">
+            <div class="navBarr">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="logo"><img src="~/images/logo.png" alt="#" /></a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
@@ -41,23 +41,25 @@
         </nav>
     </section>
 
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/77b5f27565.js" crossorigin="anonymous"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js"></script>
-    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>*@
-    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
+
 </html>
+<footer class="border-top footer text-muted">
+    <div class="">
+        &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="https://kit.fontawesome.com/77b5f27565.js" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
 

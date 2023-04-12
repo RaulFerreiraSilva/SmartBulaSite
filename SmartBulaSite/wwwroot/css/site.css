@@ -6,29 +6,38 @@ for details on configuring this project to bundle and minify static web assets. 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
 
 body {
-    text-align: center;
-    width: 100%;
     margin: 0;
-
-    margin-bottom: 60px; /*footer*/
-    font-family: 'Magra', sans-serif; /*footer*/
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 #home {
     background-image: url(../images/fundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-  
-    padding-bottom: 35%; 
+    margin: 0;
+    text-align:center;
     
 }
+
+.module.parallax {
+    
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+  
+  
+}
+
+.navBarr{
+    text-align:center;
+    justify-content:center;
+    margin-left:10rem;
+
+}
+
 
 /* Provide sufficient contrast against white background */
 a {
@@ -61,10 +70,6 @@ button.accept-policy {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: relative;
-  /*  min-height: 100%;*/
-}
 
 
 #tituloHome {
@@ -78,8 +83,6 @@ h3 {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
@@ -120,7 +123,6 @@ h3 {
     text-align: center;
     color: #B4D2D9;
     z-index: 0;
-    transition: all 0.3s ease-out;
     box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
 }
 
@@ -181,6 +183,7 @@ h3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 310px;
+   text-align:center;
 }
 
 /*.card{
