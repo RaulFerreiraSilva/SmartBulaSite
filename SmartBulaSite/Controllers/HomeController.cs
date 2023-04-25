@@ -14,6 +14,7 @@ using System.Text;
 using System.Net.Http;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace SmartBulaSite.Controllers
 {
@@ -47,7 +48,11 @@ namespace SmartBulaSite.Controllers
                     byte[] bytesArquivo = s.ToArray();
                     string content = await MakeRequest(bytesArquivo);
                     dynamic stuff = JsonConvert.DeserializeObject(content);
-                    principio_ativo = stuff.readResult.content;
+                    JsonConvert teste = stuff.readResult.pages;
+                    foreach (string element in teste)
+                    {
+                        Console.Write($"{element} ");
+                    }
                 }
                 else
                 {
