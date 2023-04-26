@@ -14,31 +14,37 @@ namespace SmartBulaSite.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
-        [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody] Usuario usuario)
-        {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Salvar()));
-        }
-
-        [HttpGet("Logar")]
-        public IActionResult Logar(String userName, String password)
-        {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
-        }
-
-        [HttpPut("Editar")]
-        public IActionResult Editar([FromBody] Usuario usuario)
-        {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Editar()));
-        }
-
-        [HttpDelete("Excluir")]
-        public IActionResult Excluir([FromBody] Usuario usuario)
-        {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Excluir()));
+        [HttpGet]
+        public IActionResult Listar() {
+            return new JsonResult(JsonConvert.SerializeObject(Usuario.Listar()));
         }
     }
 
+    public class BuscaController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult Buscar()
+        {
+            foreach (IFormFile arq in Request.Form.Files)
+            {
+                string tipoArquivo = arq.ContentType;
+                string extensao = System.IO.Path.GetExtension(arq.FileName);
 
+                if (tipoArquivo.Contains("image") || tipoArquivo.Contains("audio"))
+                {
+                    MemoryStream s = new MemoryStream();
+                    arq.CopyTo(s);
+                    byte[] bytesArquivo = s.ToArray();
+
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            return RedirectToAction("index");
+        }
+    }
 
 }
