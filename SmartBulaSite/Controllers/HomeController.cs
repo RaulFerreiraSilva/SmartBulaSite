@@ -47,11 +47,22 @@ namespace SmartBulaSite.Controllers
                     arq.CopyTo(s);
                     byte[] bytesArquivo = s.ToArray();
                     string content = await MakeRequest(bytesArquivo);
-                    dynamic stuff = JsonConvert.DeserializeObject(content);
-                    JsonConvert teste = stuff.readResult.pages;
-                    foreach (string element in teste)
+
+                    JToken json = JToken.Parse(content);
+
+                    // Acessar a lista de objetos "words"
+                    JArray words = (JArray)json["readResult"]["pages"][0]["words"];
+
+                    // Iterar sobre a lista de objetos "words" e acessar o campo "content" de cada objeto
+                    foreach (JObject word in words)
                     {
-                        Console.Write($"{element} ");
+                        string principio = (string)word["content"];
+
+                        if (Remedio.BuscarRemedio(principio) != null)
+                        {
+                            principio_ativo = principio;
+                            break;
+                        }
                     }
                 }
                 else
