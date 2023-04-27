@@ -38,8 +38,11 @@ namespace SmartBulaSite.Models
                 query.Parameters.AddWithValue("@id_usuario", this.Id_Usuario);
                 MySqlDataReader reader = query.ExecuteReader();
 
+                con.Close();
                 return true;
             } catch (Exception ex) {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
                 Console.WriteLine(ex.Message);
                 return false;
             }
