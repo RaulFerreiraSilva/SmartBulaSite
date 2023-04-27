@@ -249,7 +249,11 @@ i {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 310px;
-   text-align:center;
+    text-align: center;
+    margin-left: 12em;
+    margin-right: 12em;
+
+
 }
 
 /*.card{
