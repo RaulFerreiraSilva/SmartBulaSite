@@ -29,7 +29,7 @@ namespace SmartBulaSite.Models
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
         public string PrincipioAtivo { get => principioAtivo; set => principioAtivo = value; }
 
-        internal static Remedio BuscarRemedio(string principio_ativo)
+        internal static String BuscarRemedio(string principio_ativo)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace SmartBulaSite.Models
                         );
                 }
                 con.Close();
-                return remedio;
+                return remedio.ToString();
             }
             catch (Exception e)
             {
@@ -60,7 +60,7 @@ namespace SmartBulaSite.Models
                     con.Close();
 
                 Console.WriteLine(e);
-                return null;
+                return "Remedio não encontrado!";
             }
         }
     }

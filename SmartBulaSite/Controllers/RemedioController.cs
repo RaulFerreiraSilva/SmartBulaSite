@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SmartBulaSite.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,27 @@ namespace SmartBulaSite.Controllers
     [Route("api/[controller]")]
     public class RemedioController
     {
-            [HttpGet]
-            public IActionResult Buscar(string principio_ativo)
-            {
-                return new JsonResult(JsonConvert.SerializeObject(Remedio.BuscarRemedio(principio_ativo)));
+        [HttpGet]
+        public IActionResult Buscar(string response) {
+            string principioAtivo = null;
+            string BuscaPrincipio = null;
+
+            JToken json = JToken.Parse(response);
+
+            // Acessar a lista de objetos "words"
+            JArray words = (JArray)json["readResult"]["pages"][0]["words"];
+
+            // Iterar sobre a lista de objetos "words" e acessar o campo "content" de cada objeto
+            foreach (JObject word in words) {
+                BuscaPrincipio = (string)word["content"];
+
+                if (Remedio.BuscarRemedio(BuscaPrincipio) != null) {
+                    principioAtivo = BuscaPrincipio;
+                    break;
+                }
             }
+
+            return new JsonResult(JsonConvert.SerializeObject(Remedio.BuscarRemedio(principioAtivo)));
+        }
     }
 }

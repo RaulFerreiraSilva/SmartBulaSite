@@ -30,25 +30,36 @@ namespace SmartBulaSite.Models
         public DateTime DataNasc { get => dataNasc; set => dataNasc = value; }
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
-      
 
+        public Boolean favoritar() {
+            try {
+                con.Open();
+                MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES(@id_usuario, 1)", con);
+                query.Parameters.AddWithValue("@id_usuario", this.Id_Usuario);
+                MySqlDataReader reader = query.ExecuteReader();
 
-        internal String Salvar()
+                return true;
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        internal static String Salvar(Usuario user)
         {
             try
             {
                 con.Open();
-                Usuario user = null;
                 MySqlCommand qry = new MySqlCommand(
                     "INSERT INTO usuario (nome, sobreNome, dataNasc, email, senha) VALUES (@nome, @sobreNome, @dataNasc, @email, @senha)", con);
-                qry.Parameters.AddWithValue("@nome", this.nome);
-                qry.Parameters.AddWithValue("@sobreNome",this.sobreNome);
-                qry.Parameters.AddWithValue("@dataNasc", this.dataNasc);
-                qry.Parameters.AddWithValue("@email", this.email);
-                qry.Parameters.AddWithValue("@senha", this.senha);
+                qry.Parameters.AddWithValue("@nome", user.nome);
+                qry.Parameters.AddWithValue("@sobreNome", user.sobreNome);
+                qry.Parameters.AddWithValue("@dataNasc", user.dataNasc);
+                qry.Parameters.AddWithValue("@email", user.email);
+                qry.Parameters.AddWithValue("@senha", user.senha);
 
                 qry.ExecuteNonQuery();
-                user = Logar(this.nome, this.senha);
+                user = Logar(user.nome, user.senha);
                 con.Close();
                 return "Sucesso, Cadastrado";
             }

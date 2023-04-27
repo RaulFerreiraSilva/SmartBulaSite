@@ -15,9 +15,11 @@ namespace SmartBulaSite.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody] Usuario usuario)
+        public IActionResult Salvar(String usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Salvar()));
+            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+           
+            return new JsonResult(JsonConvert.SerializeObject(Usuario.Salvar(user)));
         }
 
         [HttpGet("Logar")]
@@ -37,6 +39,12 @@ namespace SmartBulaSite.Controllers
         {
             return new JsonResult(JsonConvert.SerializeObject(usuario.Excluir()));
         }
+
+        [HttpPost("Favoritar")]
+        public IActionResult Favotirar([FromBody] Usuario usuario) {
+            return new JsonResult(JsonConvert.SerializeObject(usuario.favoritar()));
+        }
+
     }
 
 
