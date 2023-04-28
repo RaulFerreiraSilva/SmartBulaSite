@@ -31,6 +31,8 @@ namespace SmartBulaSite.Models
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
 
+       
+
         public Boolean favoritar() {
             try {
                 con.Open();
