@@ -4,26 +4,59 @@ for details on configuring this project to bundle and minify static web assets. 
 @import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
 
 
+.navbar {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
 
 .navbar-nav {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
+    margin-top:20px;
     list-style: none;
-    margin-left: 30em;
 }
 
-.container{
-    margin:0;
+.linkBar {
+    font-size: 20px;
+    justify-content: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 15px;
+    white-space: nowrap;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: revert;
+    text-underline-position: under;
+    text-decoration-color: #698c8c;
+}
+    .linkBar:hover {
+        text-decoration-color: #b4d2d9;
+        text-decoration: underline;
+        color: #fff;
+       
+    }
+
+
+#downloadImg {
+   
+    float: right;
+
 }
 
-.logo{
-    margin:0;
+.container {
+    margin: 0;
+}
+
+.logo {
+    margin: 0;
+    margin-left: 20%;
+    margin-top: 10px;
 }
 
 
@@ -39,29 +72,44 @@ body {
     overflow-x: hidden;
 }
 
+
+
+
 #home {
-    background-image: url(../images/fundo.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/fundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
-    text-align:center;
+    text-align: center;
 }
-
 .module.parallax {
-    
     position: relative;
     overflow: hidden;
     background-attachment: fixed;
   
-  
 }
 
 
 
-/* Provide sufficient contrast against white background */
-a {
-    color: #080808;
+.p2 {
+    margin-top: 5%;
+    color: #1e3c40;
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Magra', sans-serif;
 }
+
+#imgFooter {
+    background-image: linear-gradient(rgba(16,36,38,0.8), rgba(16,36,38,0.8)), url(../images/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    height: 400px;
+}
+
+
+
 
 .btn-primary {
     color: #fff;
@@ -69,14 +117,7 @@ a {
     border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
 
-/* Sticky footer styles
--------------------------------------------------- */
 
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
@@ -87,8 +128,7 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+
 
 
 #tituloHome {
@@ -245,7 +285,7 @@ i {
 
 /*CARDS*/
 .wrapper {
-    margin-top: 10%;
+    margin-top: 5%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 310px;
@@ -285,20 +325,21 @@ margin-top: 10%;
 
 
 .saber {
-    text-decoration: none;
     color: black;
-    text-decoration: 2px underline #698c8c;
+    text-decoration: revert;
+    text-underline-position: under;
 }
 
 
     .saber:hover {
         text-decoration: underline;
+        color: #698c8c;
     }
 
 /*FIM CARDS*/
 /*------------------------------------------------------------------CARD------------------------------------------------*/
 
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+
 
 :root {
     /* Colors */

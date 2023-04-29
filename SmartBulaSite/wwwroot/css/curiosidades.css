@@ -57,7 +57,7 @@ body {
 }
 
 .p {
-    width: 250px;
+  background-color:black;
     display: inline-block;
     font-family: 'Ubuntu', sans-serif;
 }
