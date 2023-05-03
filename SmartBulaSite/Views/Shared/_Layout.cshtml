@@ -42,7 +42,7 @@
     </section>
 
     <div class="">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
@@ -51,15 +51,12 @@
 </body>
 
 </html>
-<footer class="border-top footer text-muted">
+<footer class="footer text-muted">      @*border-top*@
 
     <div id="imgFooter" class="module parallax">
-       
+        &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Code Breaker</a>
     </div>
 
-    <div class="">
-        &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
 </footer>
 <script src="https://kit.fontawesome.com/77b5f27565.js" crossorigin="anonymous"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
