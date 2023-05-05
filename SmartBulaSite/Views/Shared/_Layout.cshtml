@@ -36,8 +36,12 @@
 
                 </div>
 
+                <div id="btnDonwload">
+                    <a>Donwload</a>
+                </div>
+
             </div>
-            <a asp-area="" asp-controller="Home" asp-action="Index" id="downloadImg"><img src="~/images/logo.png" alt="#" /></a>
+           
         </nav>
     </section>
 
@@ -51,12 +55,38 @@
 </body>
 
 </html>
-<footer class="footer text-muted">      @*border-top*@
+<footer class="footer text-muted">
+    @*border-top*@
 
     <div id="imgFooter" class="module parallax">
-        &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Code Breaker</a>
-    </div>
 
+
+
+        <div id="gridFooter">
+            <div>
+                <h4>​Fale conosco</h4>
+                <p> - codeBreaker@site.com</p>
+            </div>
+
+            <div>
+                <h4>Mapa do site</h4>
+                <ul>
+                    <li>Ínicio</li>
+                    <li>Sobre nós</li>
+                    <li>Sobre Nós</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>QR-Code</h4>
+                <p>Texto de amostra.</p>
+            </div>
+
+        </div>
+
+        &copy; 2023 - SmartBula - <a asp-area="" asp-controller="Home" asp-action="Privacy">Code Breaker</a>
+
+    </div>
 </footer>
 <script src="https://kit.fontawesome.com/77b5f27565.js" crossorigin="anonymous"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -19,8 +19,9 @@ for details on configuring this project to bundle and minify static web assets. 
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-top:20px;
+    margin-top: 20px;
     list-style: none;
+    margin-left: 10em;
 }
 
 .linkBar {
@@ -33,13 +34,12 @@ for details on configuring this project to bundle and minify static web assets. 
     font-family: 'Open Sans', sans-serif;
     text-decoration: revert;
     text-underline-position: under;
-    text-decoration-color: #698c8c;
+    text-decoration-color: /*#698c8c*/ #b4d2d9;
 }
     .linkBar:hover {
-        text-decoration-color: #b4d2d9;
+        text-decoration-color: /*#b4d2d9*/ #698c8c;
         text-decoration: underline;
         color: #fff;
-       
     }
 
 
@@ -98,14 +98,6 @@ body {
     font-family: 'Magra', sans-serif;
 }
 
-#imgFooter {
-    background-image: linear-gradient(rgba(16,36,38,0.8), rgba(16,36,38,0.8)), url(../images/fundo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    text-align: center;
-    height: 400px;
-}
 
 
 
@@ -143,10 +135,30 @@ h3 {
 
 .footer {
     width: 100%;
-    white-space: nowrap;
+   /* white-space: nowrap;*/
     line-height: 60px; /* Vertically center the text there */
-    
+
+   
 }
+
+#gridFooter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 5em;
+    margin-bottom: 5em;
+    color:white;
+    /* grid-auto-rows: 310px;*/
+}
+
+#imgFooter {
+    background-image: linear-gradient(rgba(16,36,38,0.8), rgba(16,36,38,0.8)), url(../images/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    height: 400px;
+}
+
 
 
 
@@ -587,14 +599,11 @@ margin-top: 10%;
     height: 1000px;
     background-color: #102426;
     color: white;
-    margin-top: 2px;
+    margin-top: 1px;
     text-align: right;
     padding-right: 20%;
 }
 
-#baixar p{
-    width:100px;
-}
 
 .card_qm { /* essas são as divs do cardsQM*/
     background-color: #f2f2f0;
@@ -607,13 +616,49 @@ margin-top: 10%;
 
 #base_qm {
     background-color: white;
-    margin-left:10%;
-    margin-right:10%;
- 
-    
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px;
+}
+
+#btnDonwload {
+    height: 40px;
+    background: #fff;
+    border-radius: 10px;
+    padding: inherit;
+    padding-top: 8px;
+    margin-left: 6em;
+    padding-bottom: 40px;
+    font-size: 20px;
+    margin-top: 0.5em;
+}
+
+
+    #btnDonwload:hover {
+        background-color: #b4d2d9;
+        transition: 0.5s;
+        color:white;
+        cursor:pointer;
+    }
+
+
+.p_qm {
+    width: 60em;
+    margin-left: 30em;
+    margin-top: 3em;
 }
 
 
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 
+::-webkit-scrollbar-track {
+    background: #fff;
+}
 
+::-webkit-scrollbar-thumb {
+    background:  #1e3c40;
+}

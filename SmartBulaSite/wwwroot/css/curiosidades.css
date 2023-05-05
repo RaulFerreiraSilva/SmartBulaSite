@@ -30,11 +30,13 @@ body {
 .h3Curiosidades {
     font-size: 36px;
     font-family: 'Ubuntu', sans-serif;
+    margin-top:2em;
 }
 
 #textoPrincipal {
     margin-left:20em;
     margin-right:20em;
+    margin-top: 5em;
 }
 .textoInfo {
     font-family: 'Open Sans', sans-serif;
