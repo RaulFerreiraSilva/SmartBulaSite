@@ -29,12 +29,12 @@ namespace SmartBulaSite.Controllers
         }
 
         [HttpPut("Editar")]
-        public IActionResult Editar(String email, String senha)
+        public IActionResult Editar(String email, String senha, String senhaNova)
         {
             //Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
 
             //return new JsonResult(JsonConvert.SerializeObject(user.Editar()));
-            return Ok(Usuario.Editar(email, senha));
+            return Ok(Usuario.Editar(email, senha, senhaNova));
         }
 
         [HttpDelete("Excluir")]

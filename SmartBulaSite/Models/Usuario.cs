@@ -31,10 +31,12 @@ namespace SmartBulaSite.Models
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
 
-       
 
-        public Boolean favoritar() {
-            try {
+
+        public Boolean favoritar()
+        {
+            try
+            {
                 con.Open();
                 MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES(@id_usuario, 1)", con);
                 query.Parameters.AddWithValue("@id_usuario", this.Id_Usuario);
@@ -42,7 +44,9 @@ namespace SmartBulaSite.Models
 
                 con.Close();
                 return true;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 Console.WriteLine(ex.Message);
@@ -72,7 +76,7 @@ namespace SmartBulaSite.Models
             {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
-                return "Houve um Erro: "+e;
+                return "Houve um Erro: " + e;
             }
         }
 
@@ -125,22 +129,21 @@ namespace SmartBulaSite.Models
             }
         }
 
-        internal static String Editar(String email, String senha)
+        internal static String Editar(String email, String senha, String senhaNova)
         {
             try
             {
-                con.Open();
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 Usuario user = null;
                 MySqlCommand qry = new MySqlCommand(
-                    "UPDATE usuario SET senha = @senha WHERE email = @email and senha = @senha", con);
+                    "UPDATE usuario SET senha = @senhaNova WHERE email = @email and senha = @senha", con);
                 qry.Parameters.AddWithValue("@email", email);
                 qry.Parameters.AddWithValue("@senha", senha);
-                
-
-                qry.ExecuteNonQuery();
+                qry.Parameters.AddWithValue("@senhaNova", senhaNova);
 
                 if (qry.ExecuteNonQuery() > 0)
-                    user = Logar(email, senha);
+                    user = Logar(email, senhaNova);
                 else
                     return "Ocorreu um Erro no edit, Usuario não encontrado";
 
