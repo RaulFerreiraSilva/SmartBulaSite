@@ -36,7 +36,31 @@ namespace SmartBulaSite.Controllers
         {
             return View();
         }
+        public IActionResult Vitaminas()
+        {
+            return View();
+        }
 
+        public IActionResult Analgesicos()
+        {
+            return View();
+        }
+        public IActionResult Antiacidos()
+        {
+            return View();
+        }
+        public IActionResult Antialergicos()
+        {
+            return View();
+        }
+        public IActionResult Antibioticos()
+        {
+            return View();
+        }
+        public IActionResult AntiInflamatorio()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
