@@ -22,21 +22,25 @@ namespace SmartBulaSite.Controllers
         }
 
         [HttpGet("Logar")]
-        public IActionResult Logar(String userName, String password)
+        public IActionResult Logar(String email, String password)
         {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
+            return Ok(Usuario.Logar(email, password));
+            //return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
         }
 
         [HttpPut("Editar")]
-        public IActionResult Editar(String usuario)
+        public IActionResult Editar(String email, String senha)
         {
-            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
-            return new JsonResult(JsonConvert.SerializeObject(user.Editar()));
+            //Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+
+            //return new JsonResult(JsonConvert.SerializeObject(user.Editar()));
+            return Ok(Usuario.Editar(email, senha));
         }
 
         [HttpDelete("Excluir")]
         public IActionResult Excluir(String usuario)
         {
+            
             Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
             return new JsonResult(JsonConvert.SerializeObject(user.Excluir()));
         }
