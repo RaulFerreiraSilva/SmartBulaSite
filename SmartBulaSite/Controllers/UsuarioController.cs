@@ -18,7 +18,7 @@ namespace SmartBulaSite.Controllers
         public IActionResult Salvar(String usuario)
         {
             Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Salvar(user)));
+            return Ok(user.Salvar(user));
         }
 
         [HttpGet("Logar")]

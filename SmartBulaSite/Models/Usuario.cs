@@ -50,7 +50,7 @@ namespace SmartBulaSite.Models
             }
         }
 
-        internal static String Salvar(Usuario user)
+        internal String Salvar(Usuario user)
         {
             try
             {
