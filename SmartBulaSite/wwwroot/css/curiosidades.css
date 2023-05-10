@@ -1,5 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body {
     margin:0;
@@ -111,6 +110,12 @@ body {
         grid-row: 1 / 2;
     }
 
+
+.card2__content a{
+    text-decoration: none;
+    color:black;
+}
+
 .card2__background {
     object-fit: cover;
     max-width: 100%;
@@ -125,7 +130,7 @@ body {
     align-self: flex-end;
     height: 300px;
     padding: 12% 1.25rem 1.875rem;
-    background: linear-gradient( 180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.3) 10%, hsl(0, 0%, 0%) 100% );
+    background: linear-gradient( 180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.1) 10%, hsl(0, 0%, 0%) 100% );
 }
 
 .card2__content--container {
@@ -145,7 +150,8 @@ body {
         width: calc(100% + 1.25rem);
         bottom: calc((1.25rem - 0.5rem) * -1);
         left: -1.25rem;
-        background-color: var(--brand-color);
+        background-color: #bfe4e9;
+        
     }
 
 .card2__button {
@@ -157,7 +163,8 @@ body {
     font-weight: bold;
     border-radius: 0.45em;
     border: none;
-    background-color: var(--brand-color);
+    background-color: #bfe4e9;
+    
     font-family: var(--font-title);
     font-size: 1.125rem;
     color: var(--black);

@@ -7,6 +7,9 @@ for details on configuring this project to bundle and minify static web assets. 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
 
 
+html{
+    scroll-behavior: smooth;
+}
 .navbar {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/fundo.jpg);
     background-repeat: no-repeat;
@@ -631,16 +634,19 @@ margin-top: 10%;
     padding-bottom: 40px;
     font-size: 20px;
     margin-top: 0.5em;
+   
 }
-
-
-    #btnDonwload:hover {
-        background-color: #b4d2d9;
-        transition: 0.5s;
-        color:white;
-        cursor:pointer;
+    #btnDonwload a{
+        text-decoration: none;
+        color: black;
     }
 
+     #btnDonwload a:hover {
+            background-color: #b4d2d9;
+            transition: 0.5s;
+            color: white;
+            cursor: pointer;
+    }
 
 .p_qm {
     width: 60em;
