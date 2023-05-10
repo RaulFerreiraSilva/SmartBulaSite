@@ -136,19 +136,22 @@ h3 {
 .footer {
     width: 100%;
    /* white-space: nowrap;*/
-    line-height: 60px; /* Vertically center the text there */
-
-   
+    line-height: 30px; 
 }
 
 #gridFooter {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 5em;
-    margin-bottom: 5em;
+    margin-bottom: 6em;
     color:white;
     /* grid-auto-rows: 310px;*/
 }
+
+#gridFooter ul {
+        list-style: none;
+        padding-right: 7%;
+    }
 
 #imgFooter {
     background-image: linear-gradient(rgba(16,36,38,0.8), rgba(16,36,38,0.8)), url(../images/fundo.jpg);
@@ -589,7 +592,7 @@ margin-top: 10%;
 #cardsQM {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 300px;
+    grid-auto-rows: 400px;
     margin-right: 5em;
     margin-left: 5em;
     padding-bottom: 3%;
@@ -600,9 +603,25 @@ margin-top: 10%;
     background-color: #102426;
     color: white;
     margin-top: 1px;
-    text-align: right;
-    padding-right: 20%;
+    padding-top: 10em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
 }
+
+#text_baixar p {
+    width: 700px;
+    margin-left: 17em;
+    font-size: 18px;
+}
+
+#text_baixar{
+    margin-left: 17em;
+
+}
+
+
+
 
 
 .card_qm { /* essas são as divs do cardsQM*/
@@ -612,6 +631,7 @@ margin-top: 10%;
     border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
+
 }
 
 #base_qm {
