@@ -5,7 +5,7 @@ body {
 }
 
 
-.imgCuriosidades {
+.imgAntiinflamatorio{
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/img1.jpg) no-repeat;
     max-width: 100%;
     max-height: 100%;
@@ -16,6 +16,73 @@ body {
     text-align: center;
     position: relative;
 }
+
+.imgVitaminas {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/vitaminas.png) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+
+.imgAnalgesicos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/analgesico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+
+.imgAntiacidos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antiácido.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+.imgAntialergicos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antialergico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+
+.imgAntibioticos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antibiotico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+
+
+
 
 
 .h1Curiosidades {
