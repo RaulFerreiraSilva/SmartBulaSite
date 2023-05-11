@@ -46,9 +46,9 @@ namespace SmartBulaSite.Controllers
         }
 
         [HttpPost("Favoritar")]
-        public IActionResult Favotirar(String usuario) {
-            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
-            return new JsonResult(JsonConvert.SerializeObject(user.favoritar()));
+        public IActionResult Favotirar(int id_Usuario, int id_Medicamento) {
+            
+            return Ok(Usuario.favoritar(id_Usuario, id_Medicamento));
         }
 
     }
