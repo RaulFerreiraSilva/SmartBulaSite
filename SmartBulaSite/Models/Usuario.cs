@@ -27,7 +27,8 @@ namespace SmartBulaSite.Models
             this.senha = senha;
         }
 
-        public Usuario(int id_favorito, int fK_USUARIO_id_usuario, int fK_MEDICAMENTO_id_Medicamento) {
+        public Usuario(int id_favorito, int fK_USUARIO_id_usuario, int fK_MEDICAMENTO_id_Medicamento)
+        {
             this.id_favorito = id_favorito;
             FK_USUARIO_id_usuario = fK_USUARIO_id_usuario;
             FK_MEDICAMENTO_id_Medicamento = fK_MEDICAMENTO_id_Medicamento;
@@ -43,11 +44,12 @@ namespace SmartBulaSite.Models
         public int FK_USUARIO_id_usuario1 { get => FK_USUARIO_id_usuario; set => FK_USUARIO_id_usuario = value; }
         public int FK_MEDICAMENTO_id_Medicamento1 { get => FK_MEDICAMENTO_id_Medicamento; set => FK_MEDICAMENTO_id_Medicamento = value; }
 
-        public static Boolean favoritar(int id_Usuario,int id_Medicamento)
+        public static Boolean favoritar(int id_Usuario, int id_Medicamento)
         {
             try
             {
-                con.Open();
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES(@id_usuario, @id_medicamento)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 query.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
@@ -65,20 +67,35 @@ namespace SmartBulaSite.Models
             }
         }
 
-        public static List<Usuario> listaFavoritar(int id_Usuario) {
-            try {
-                con.Open();
+        public static List<Usuario> listaFavoritar(int id_Usuario)
+        {
+            try
+            {
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 MySqlCommand query = new MySqlCommand("SELECT * FROM MENDICAMENTO_FAVORITO where FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario ", con);
                 query.Parameters.AddWithValue("@FK_USUARIO_id_usuario", id_Usuario);
                 MySqlDataReader reader = query.ExecuteReader();
+                List<Usuario> lista = new List<Usuario>();
 
+                while (reader.Read())
+                {
+                    lista.Add(new Usuario(
+                        int.Parse(reader["id_favorito"].ToString()),
+                        int.Parse(reader["fK_USUARIO_id_usuario"].ToString()),
+                        int.Parse(reader["FK_MEDICAMENTO_id_Medicamento"].ToString())
+                       ));
+                }
                 con.Close();
-                return true;
-            } catch (Exception ex) {
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 Console.WriteLine(ex.Message);
-                return false;
+                return null;
             }
         }
 
@@ -86,7 +103,8 @@ namespace SmartBulaSite.Models
         {
             try
             {
-                con.Open();
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 MySqlCommand qry = new MySqlCommand(
                     "INSERT INTO usuario (nome, sobreNome, dataNasc, email, senha) VALUES (@nome, @sobreNome, @dataNasc, @email, @senha)", con);
                 qry.Parameters.AddWithValue("@nome", user.nome);

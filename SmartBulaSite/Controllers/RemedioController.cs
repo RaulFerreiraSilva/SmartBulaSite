@@ -11,14 +11,14 @@ namespace SmartBulaSite.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RemedioController
+    public class RemedioController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Buscar(string response) {
+        public IActionResult Buscar([FromBody] object response) {
             string principioAtivo = null;
             string BuscaPrincipio = null;
 
-            JToken json = JToken.Parse(response);
+            JToken json = JToken.Parse(response.ToString());
 
             // Acessar a lista de objetos "words"
             JArray words = (JArray)json["readResult"]["pages"][0]["words"];
@@ -33,7 +33,7 @@ namespace SmartBulaSite.Controllers
                 }
             }
 
-            return new JsonResult(JsonConvert.SerializeObject(Remedio.BuscarRemedio(principioAtivo)));
+            return Ok(Remedio.BuscarRemedio(principioAtivo));
         }
     }
 }

@@ -29,11 +29,12 @@ namespace SmartBulaSite.Models
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
         public string PrincipioAtivo { get => principioAtivo; set => principioAtivo = value; }
 
-        internal static String BuscarRemedio(string principio_ativo)
+        internal static Remedio BuscarRemedio(string principio_ativo)
         {
             try
             {
-                con.Open();
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 MySqlCommand qry = new MySqlCommand(
                     "SELECT * FROM medicamento WHERE principio_ativo = @principio_ativo", con);
                 qry.Parameters.AddWithValue("@principio_ativo", principio_ativo);
@@ -51,8 +52,13 @@ namespace SmartBulaSite.Models
                         leitor["principio_ativo"].ToString()
                         );
                 }
+                else
+                {
+                    con.Close();
+                    return null;
+                }
                 con.Close();
-                return remedio.ToString();
+                return remedio;
             }
             catch (Exception e)
             {
@@ -60,7 +66,7 @@ namespace SmartBulaSite.Models
                     con.Close();
 
                 Console.WriteLine(e);
-                return "Remedio não encontrado!";
+                return null;
             }
         }
     }

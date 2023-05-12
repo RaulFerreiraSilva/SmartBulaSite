@@ -24,7 +24,8 @@ namespace SmartBulaSite.Controllers
         public IActionResult alergiaUsuario(int id_Usuario, String tipoAlergia)
         {
             Alergia alergia = JsonConvert.DeserializeObject<Alergia>(tipoAlergia);
-            return new JsonResult(JsonConvert.SerializeObject(alergia.alergiaUsuario(id_Usuario)));
+
+            return Ok(alergia.alergiaUsuario(id_Usuario));
         }
 
         [HttpPost("Listar")]
@@ -32,9 +33,9 @@ namespace SmartBulaSite.Controllers
             return Ok(Alergia.listar());
         }
 
-        [HttpPost("ListarAlergiaUsuario")]
-        public IActionResult ListarAlergiaUsuario(int usuarioId) {
-            return Ok(Alergia.listarAlergiaUsuario(usuarioId));
-        }
+        //[HttpPost("ListarAlergiaUsuario")]
+        //public IActionResult ListarAlergiaUsuario(int usuarioId) {
+        //    return Ok(Alergia.listarAlergiaUsuario(usuarioId));
+        //}
     }
 }

@@ -37,18 +37,25 @@ namespace SmartBulaSite.Controllers
             return Ok(Usuario.Editar(email, senha, senhaNova));
         }
 
-        [HttpDelete("Excluir")]
-        public IActionResult Excluir(String usuario)
-        {
-            
-            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
-            return new JsonResult(JsonConvert.SerializeObject(user.Excluir()));
-        }
-
         [HttpPost("Favoritar")]
         public IActionResult Favotirar(int id_Usuario, int id_Medicamento) {
             
             return Ok(Usuario.favoritar(id_Usuario, id_Medicamento));
+        }
+
+        [HttpPost("ListaFavoritar")]
+        public IActionResult ListaFavotirar(int id_Usuario)
+        {
+
+            return Ok(Usuario.listaFavoritar(id_Usuario));
+        }
+
+        [HttpDelete("Excluir")]
+        public IActionResult Excluir(String usuario)
+        {
+
+            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+            return new JsonResult(JsonConvert.SerializeObject(user.Excluir()));
         }
 
     }
