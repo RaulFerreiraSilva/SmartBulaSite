@@ -310,8 +310,7 @@ i {
     text-align: center;
     margin-left: 12em;
     margin-right: 12em;
-
-
+    margin-bottom: 10em;
 }
 
 /*.card{
@@ -574,20 +573,8 @@ margin-top: 10%;
 
 }
 
-
-/*Curiosidades ----------- Antibiotico*/
-
-
-#fundo_qm {
-    height: 200px;
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 7%;
-}
-
-
 #fundo2_qm {
-    height: 600px;
+    height: 350px;
     text-align: center;
     background-color: #102426;
 }
@@ -598,18 +585,17 @@ margin-top: 10%;
     grid-auto-rows: 400px;
     margin-right: 5em;
     margin-left: 5em;
-    padding-bottom: 3%;
+    padding-bottom: 3em;
+    margin-top:3em;
 }
 
 #baixar {
-    height: 1000px;
+    height: 800px;
     background-color: #102426;
     color: white;
-    margin-top: 1px;
     padding-top: 10em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
 }
 
 #text_baixar p {
@@ -634,7 +620,7 @@ margin-top: 10%;
     border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
-
+    box-shadow: 0 -1em 1em #cdcdcd;
 }
 
 #base_qm {
@@ -642,6 +628,9 @@ margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
     border-radius: 10px;
+    padding-top: 1px;
+    box-shadow: 0 -1em 1em #d9d8d866;
+    /* box-shadow: 0 -1em 1em #cdcdcd;*/
 }
 
 #btnDonwload {
@@ -669,9 +658,11 @@ margin-top: 10%;
     }
 
 .p_qm {
-    width: 60em;
-    margin-left: 30em;
+    margin-left: 6em;
     margin-top: 3em;
+    margin-right: 6em;
+    text-align: center;
+    padding-bottom: 3em;
 }
 
 
