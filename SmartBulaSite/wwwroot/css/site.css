@@ -582,11 +582,36 @@ margin-top: 10%;
 #cardsQM {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 400px;
+    grid-auto-rows: 500px;
     margin-right: 5em;
     margin-left: 5em;
     padding-bottom: 3em;
-    margin-top:3em;
+    margin-top: 3em;
+    text-align: center;
+}
+.negrito {
+    font-weight: bold;
+}
+
+.img_qm {
+    background-image: url(../images/Face_modelo.jpg);
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    margin-left: 4em;
+    margin-bottom: 3em;
+    margin-top: 1.6em;
+    position: relative;
+}
+
+.fundo_img_qm {
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid #1e3c40;
+    margin-left: 2.5em;
+    position: absolute;
 }
 
 #baixar {
@@ -615,12 +640,17 @@ margin-top: 10%;
 
 .card_qm { /* essas são as divs do cardsQM*/
     background-color: #f2f2f0;
-    padding-top: 15%;
-    padding-right: 2%;
+    padding-top: 10%;
+    padding: 1em;
     border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
     box-shadow: 0 -1em 1em #cdcdcd;
+}
+
+.icons_qm {
+    margin-top: 2em;
+    padding-right: 5px;
 }
 
 #base_qm {
@@ -645,16 +675,24 @@ margin-top: 10%;
     margin-top: 0.5em;
    
 }
-    #btnDonwload a{
+
+#btnDonwload a{
+   text-decoration:none;
+   color:black;
+}
+
+    #btnDonwload a:hover {
         text-decoration: none;
-        color: black;
+        color: white;
+        transition: 0.5s;
     }
 
-     #btnDonwload a:hover {
-            background-color: #b4d2d9;
-            transition: 0.5s;
-            color: white;
-            cursor: pointer;
+    #btnDonwload:hover {
+        background-color: #b4d2d9;
+        transition: 0.5s;
+        color: white;
+        cursor: pointer;
+        
     }
 
 .p_qm {
