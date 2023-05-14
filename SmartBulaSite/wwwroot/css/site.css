@@ -657,72 +657,21 @@ i {
     /* box-shadow: 0 -1em 1em #cdcdcd;*/
 }
 
-
-
-
-
 #btnDonwload {
-    padding: 1rem;
-    margin-bottom: 3rem;
-    margin-top: 5rem;
-    border-radius: 0.8rem;
-    border: none;
-    background: #b4d2d9;
-    text-transform: uppercase;
-    margin-left: 0.5rem;
-}
-<<<<<<< Updated upstream
-
-#btnDonwload a{
-   text-decoration:none;
-   color:black;
+    height: 40px;
+    background: #fff;
+    border-radius: 10px;
+    padding: inherit;
+    padding-top: 8px;
+    margin-left: 6em;
+    padding-bottom: 40px;
+    font-size: 20px;
+    margin-top: 0.5em;
 }
 
-    #btnDonwload a:hover {
-        text-decoration: none;
-        color: white;
-        transition: 0.5s;
-    }
-
-=======
-<<<<<<< HEAD
-    #btnDonwload :hover {
-        background-color: #698c8c;
-        transition: 0.5s;
-    }
-
-    
-
-
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    background-color: #698c8c;
+#btnDonwload a {
     text-decoration: none;
-    border-radius: 30px;
-}
-
-    .btn::after {
-        content: "↑";
-        font-size: 32px;
-        font-weight: bold;
-        color: aliceblue;
-        transition: margin-top 250ms;
-    }
-
-    .btn:hover::after {
-        margin-top: -8px;
-=======
-
-#btnDonwload a{
-   text-decoration:none;
-   color:black;
+    color: black;
 }
 
     #btnDonwload a:hover {
@@ -731,18 +680,12 @@ i {
         transition: 0.5s;
     }
 
->>>>>>> Stashed changes
-    #btnDonwload:hover {
-        background-color: #b4d2d9;
-        transition: 0.5s;
-        color: white;
-        cursor: pointer;
-        
-<<<<<<< Updated upstream
-=======
->>>>>>> b14c0eb0ce039de467f124d9519872e757f27b4f
->>>>>>> Stashed changes
-    }
+#btnDonwload:hover {
+    background-color: #b4d2d9;
+    transition: 0.5s;
+    color: white;
+    cursor: pointer;
+}
 
 .p_qm {
     margin-left: 6em;
@@ -766,3 +709,27 @@ i {
 ::-webkit-scrollbar-thumb {
     background:  #1e3c40;
 }
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #698c8c;
+    text-decoration: none;
+    border-radius: 30px;
+    
+}
+
+    .btn::after {
+        content: "↑";
+        font-size: 32px;
+        font-weight: bold;
+        color: aliceblue;
+        transition: margin-top 250ms;
+        border: none;
+    }
