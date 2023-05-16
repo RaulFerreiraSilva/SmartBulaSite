@@ -50,7 +50,7 @@ namespace SmartBulaSite.Models
             {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES(@id_usuario, @id_medicamento)", con);
+                MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES (@id_usuario, @id_medicamento)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 query.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
                 MySqlDataReader reader = query.ExecuteReader();
@@ -67,23 +67,24 @@ namespace SmartBulaSite.Models
             }
         }
 
-        public static List<Usuario> listaFavoritar(int id_Usuario)
+        public static List<Remedio> listaFavoritar(int id_Usuario)
         {
             try
             {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
-                MySqlCommand query = new MySqlCommand("SELECT * FROM MENDICAMENTO_FAVORITO where FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario ", con);
-                query.Parameters.AddWithValue("@FK_USUARIO_id_usuario", id_Usuario);
+                MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN mendicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
+                query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 MySqlDataReader reader = query.ExecuteReader();
-                List<Usuario> lista = new List<Usuario>();
+                List<Remedio> lista = new List<Remedio>();
 
                 while (reader.Read())
                 {
-                    lista.Add(new Usuario(
-                        int.Parse(reader["id_favorito"].ToString()),
-                        int.Parse(reader["fK_USUARIO_id_usuario"].ToString()),
-                        int.Parse(reader["FK_MEDICAMENTO_id_Medicamento"].ToString())
+                    lista.Add(new Remedio(
+                        int.Parse(reader["id_medicamento"].ToString()),
+                        reader["bula"].ToString(),
+                        reader["resumo_bula"].ToString(),
+                        reader["principio_ativo"].ToString()
                        ));
                 }
                 con.Close();

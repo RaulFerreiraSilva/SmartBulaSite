@@ -33,9 +33,10 @@ namespace SmartBulaSite.Controllers
             return Ok(Alergia.listar());
         }
 
-        //[HttpPost("ListarAlergiaUsuario")]
-        //public IActionResult ListarAlergiaUsuario(int usuarioId) {
-        //    return Ok(Alergia.listarAlergiaUsuario(usuarioId));
-        //}
+        [HttpPost("ListarAlergiaUsuario")]
+        public IActionResult ListarAlergiaUsuario(int usuarioId)
+        {
+            return Ok(Alergia.listarAlergiaUsuario(usuarioId));
+        }
     }
 }
