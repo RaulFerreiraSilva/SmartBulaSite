@@ -47,6 +47,13 @@ namespace SmartBulaSite.Models
                 query.Parameters.AddWithValue("@id_alergia", this.id_Alergia);
                 MySqlDataReader reader = query.ExecuteReader();
 
+                if(query.ExecuteNonQuery() > 0)
+                {
+                    query = new MySqlCommand("DELETE FROM alergia_usuario WHERE (@id_alergia, @id_usuario)", con);
+                    query.Parameters.AddWithValue("@id_usuario", id_Usuario);
+                    query.Parameters.AddWithValue("@id_alergia", this.id_Alergia);
+                }
+
 
                 con.Close();
                 return true;

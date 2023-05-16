@@ -16,7 +16,7 @@ namespace SmartBulaSite.Controllers
         public IActionResult AlergiaCadastrar(String tipoAlergia)
         {
             Alergia alergia = JsonConvert.DeserializeObject<Alergia>(tipoAlergia);
-            return new JsonResult(JsonConvert.SerializeObject(alergia.cadastrarAlergia()));
+            return Ok(alergia.cadastrarAlergia());
         }
 
 
