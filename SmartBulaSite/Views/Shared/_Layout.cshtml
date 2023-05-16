@@ -39,7 +39,7 @@
                 </div>
 
             </div>
-           
+
         </nav>
     </section>
 
@@ -68,10 +68,16 @@
 
             <div>
                 <h4>Mapa do site</h4>
-                <ul>
-                    <li>- Ínicio</li>
-                    <li>- Curiosidades</li>
-                    <li>- Quem Somos</li>
+                <ul class="mapaSite">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">- Início</a>
+                    </li>
+                    <li>
+                        <a asp-fragment="sectionCuriosidades" asp-controller="Home" asp-action="Index">- Curiosidades</a>
+                    </li>
+                    <li> 
+                        <a asp-fragment="fundo2_qm" asp-controller="Home" asp-action="Index">- Quem Somos</a>
+                    </li>
                 </ul>
             </div>
 

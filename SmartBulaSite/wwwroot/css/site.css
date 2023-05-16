@@ -733,3 +733,16 @@ i {
         transition: margin-top 250ms;
         border: none;
     }
+
+.mapaSite {
+    font-size: 20px;
+    margin-top: 0.5em; 
+}
+    .mapaSite a:hover {
+        text-decoration: none;
+        color: #698c8c;
+     
+    }
+    .mapaSite a{
+        color: #fff;
+    }

@@ -99,6 +99,13 @@ body {
     margin-top:2em;
 }
 
+.h5Curiosidades {
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 #textoPrincipal {
     margin-left:20em;
     margin-right:20em;
