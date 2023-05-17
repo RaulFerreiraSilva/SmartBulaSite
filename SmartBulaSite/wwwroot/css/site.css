@@ -735,20 +735,7 @@ i {
 
 /*    ------------------------------------------------------------------------------------------------*/
 
-video.fullscreen {
-  position: absolute;
-  z-index: 0;
-  object-fit: cover;
-  width:100%;
-  height:100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  &::-webkit-media-controls {
-     display:none !important;
-  }          
-}                        
+                    
 
 .fundo_video {
     position: relative;
@@ -761,9 +748,6 @@ video.fullscreen {
     margin-left: 20%;
 }
 
-.video {
-  z-index: 1;
-}
 
 #baixar {
     background-color: #102426;
@@ -774,10 +758,34 @@ video.fullscreen {
     place-items: center;
 }
 
-#text_baixar p {
+.text_baixar {
+    display: none;
+    background-color: #102426;
+    color: white;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    z-index:0;
+}
+
+
+.text_baixar p {
     width: 700px;
     margin-left: 17em;
     font-size: 18px;
 }
 
+
+#videoPlayer{
+     position: absolute;
+  z-index: 0;
+  object-fit: cover;
+  width:100%;
+  height:100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+     
+}                        
 

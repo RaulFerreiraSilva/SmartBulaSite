@@ -28,3 +28,19 @@ $(window).scroll(function () {
 btn_subir.click(function () {
     $('html,body').animate({ scrollTop: 0 }, 500);
 })
+
+
+//////////////////////////////////////////////////////////
+
+
+const videoPlayer = document.getElementById("videoPlayer");
+
+videoPlayer.addEventListener('timeupdate', function (event) {
+    if (videoPlayer.currentTime >= 5) { //defina traves de segundos. Ex: 120s = 2 minutos
+        document.querySelector('.text_baixar').style.display = "block";
+    } else {
+        document.querySelector('.text_baixar').style.display = "none";
+
+     
+    }
+});
