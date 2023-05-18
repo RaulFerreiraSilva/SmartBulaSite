@@ -14,7 +14,7 @@ namespace SmartBulaSite.Controllers
     public class RemedioController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Buscar([FromBody] object response)
+        public IActionResult Buscar([FromBody] Remedio response)
         {
             string principioAtivo = null;
             string BuscaPrincipio = null;
