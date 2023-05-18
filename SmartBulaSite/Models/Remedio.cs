@@ -33,7 +33,8 @@ namespace SmartBulaSite.Models
         {
             try
             {
-                con.Open();
+                if (!(con.State == System.Data.ConnectionState.Open))
+                    con.Open();
                 MySqlCommand qry = new MySqlCommand(
                     "SELECT * FROM medicamento WHERE principio_ativo = @principio_ativo", con);
                 qry.Parameters.AddWithValue("@principio_ativo", principio_ativo);
@@ -50,6 +51,11 @@ namespace SmartBulaSite.Models
                         leitor["resumo_bula"].ToString(),
                         leitor["principio_ativo"].ToString()
                         );
+                }
+                else
+                {
+                    con.Close();
+                    return null;
                 }
                 con.Close();
                 return remedio;
