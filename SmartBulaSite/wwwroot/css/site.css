@@ -642,6 +642,13 @@ i {
     /* box-shadow: 0 -1em 1em #cdcdcd;*/
 }
 
+
+.img_QM {
+    opacity: 20%;
+    margin-left: 50em;
+    margin-top: 3em;
+}
+
 #btnDonwload {
     height: 40px;
     background: #fff;
@@ -762,11 +769,12 @@ i {
     display: none;
     background-color: #102426;
     color: white;
-    grid-template-columns: repeat(2, 1fr);
-    height: 100vh;
+    height: 45em;
+    width: 100%;
     display: grid;
     place-items: center;
-    z-index:0;
+    z-index: 0;
+    margin-top: -1em;
 }
 
 
