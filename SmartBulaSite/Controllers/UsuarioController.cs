@@ -15,28 +15,49 @@ namespace SmartBulaSite.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody] Usuario usuario)
+        public IActionResult Salvar(String usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Salvar()));
+            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+            return Ok(user.Salvar(user));
         }
 
         [HttpGet("Logar")]
-        public IActionResult Logar(String userName, String password)
+        public IActionResult Logar(String email, String password)
         {
-            return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
+            return Ok(Usuario.Logar(email, password));
+            //return new JsonResult(JsonConvert.SerializeObject(Usuario.Logar(userName, password)));
         }
 
         [HttpPut("Editar")]
-        public IActionResult Editar([FromBody] Usuario usuario)
+        public IActionResult Editar(String email, String senha, String senhaNova)
         {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Editar()));
+            //Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+
+            //return new JsonResult(JsonConvert.SerializeObject(user.Editar()));
+            return Ok(Usuario.Editar(email, senha, senhaNova));
+        }
+
+        [HttpPost("Favoritar")]
+        public IActionResult Favotirar(int id_Usuario, int id_Medicamento) {
+            
+            return Ok(Usuario.favoritar(id_Usuario, id_Medicamento));
+        }
+
+        [HttpPost("ListaFavoritar")]
+        public IActionResult ListaFavotirar(int id_Usuario)
+        {
+
+            return Ok(Usuario.listaFavoritar(id_Usuario));
         }
 
         [HttpDelete("Excluir")]
-        public IActionResult Excluir([FromBody] Usuario usuario)
+        public IActionResult Excluir(String usuario)
         {
-            return new JsonResult(JsonConvert.SerializeObject(usuario.Excluir()));
+
+            Usuario user = JsonConvert.DeserializeObject<Usuario>(usuario);
+            return new JsonResult(JsonConvert.SerializeObject(user.Excluir()));
         }
+
     }
 
 

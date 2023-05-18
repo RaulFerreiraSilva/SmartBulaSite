@@ -14,6 +14,7 @@ using System.Text;
 using System.Net.Http;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace SmartBulaSite.Controllers
 {
@@ -46,8 +47,23 @@ namespace SmartBulaSite.Controllers
                     arq.CopyTo(s);
                     byte[] bytesArquivo = s.ToArray();
                     string content = await MakeRequest(bytesArquivo);
-                    dynamic stuff = JsonConvert.DeserializeObject(content);
-                    principio_ativo = stuff.readResult.content;
+
+                    JToken json = JToken.Parse(content);
+
+                    // Acessar a lista de objetos "words"
+                    JArray words = (JArray)json["readResult"]["pages"][0]["words"];
+
+                    // Iterar sobre a lista de objetos "words" e acessar o campo "content" de cada objeto
+                    foreach (JObject word in words)
+                    {
+                        string principio = (string)word["content"];
+
+                        if (Remedio.BuscarRemedio(principio) != null)
+                        {
+                            principio_ativo = principio;
+                            break;
+                        }
+                    }
                 }
                 else
                 {
