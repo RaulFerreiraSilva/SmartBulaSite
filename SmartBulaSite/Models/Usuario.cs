@@ -17,8 +17,7 @@ namespace SmartBulaSite.Models
         private int FK_USUARIO_id_usuario;
         private int FK_MEDICAMENTO_id_Medicamento;
 
-        public Usuario(int id_Usuario, string nome, string sobreNome, DateTime dataNasc, string email, string senha)
-        {
+        public Usuario(int id_Usuario, string nome, string sobreNome, DateTime dataNasc, string email, string senha) {
             this.id_Usuario = id_Usuario;
             this.nome = nome;
             this.sobreNome = sobreNome;
@@ -27,8 +26,7 @@ namespace SmartBulaSite.Models
             this.senha = senha;
         }
 
-        public Usuario(int id_favorito, int fK_USUARIO_id_usuario, int fK_MEDICAMENTO_id_Medicamento)
-        {
+        public Usuario(int id_favorito, int fK_USUARIO_id_usuario, int fK_MEDICAMENTO_id_Medicamento) {
             this.id_favorito = id_favorito;
             FK_USUARIO_id_usuario = fK_USUARIO_id_usuario;
             FK_MEDICAMENTO_id_Medicamento = fK_MEDICAMENTO_id_Medicamento;
@@ -40,16 +38,26 @@ namespace SmartBulaSite.Models
         public DateTime DataNasc { get => dataNasc; set => dataNasc = value; }
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
-        public int Id_favorito { get => id_favorito; set => id_favorito = value; }
-        public int FK_USUARIO_id_usuario1 { get => FK_USUARIO_id_usuario; set => FK_USUARIO_id_usuario = value; }
-        public int FK_MEDICAMENTO_id_Medicamento1 { get => FK_MEDICAMENTO_id_Medicamento; set => FK_MEDICAMENTO_id_Medicamento = value; }
 
-        public static Boolean favoritar(int id_Usuario, int id_Medicamento)
-        {
-            try
-            {
+        public static Boolean favoritar(int id_Usuario, int id_Medicamento) {
+            try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
+
+                MySqlCommand checkQuery = new MySqlCommand("SELECT FK_USUARIO_id_usuario FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
+                checkQuery.Parameters.AddWithValue("@id_usuario", id_Usuario);
+                checkQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
+                object result = checkQuery.ExecuteScalar();
+
+                if (result != null) // Se o like já existe
+                {
+                    MySqlCommand deleteQuery = new MySqlCommand("DELETE FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
+                    deleteQuery.Parameters.AddWithValue("@FK_USUARIO_id_usuario", id_Usuario);
+                    deleteQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
+                    deleteQuery.ExecuteNonQuery();
+                    return false;
+                }
+
                 MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES (@id_usuario, @id_medicamento)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 query.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
@@ -57,9 +65,7 @@ namespace SmartBulaSite.Models
 
                 con.Close();
                 return true;
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 Console.WriteLine(ex.Message);
@@ -67,10 +73,8 @@ namespace SmartBulaSite.Models
             }
         }
 
-        public static List<Remedio> listaFavoritar(int id_Usuario)
-        {
-            try
-            {
+        public static List<Remedio> listaFavoritar(int id_Usuario) {
+            try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
                 MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN mendicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
@@ -78,8 +82,7 @@ namespace SmartBulaSite.Models
                 MySqlDataReader reader = query.ExecuteReader();
                 List<Remedio> lista = new List<Remedio>();
 
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     lista.Add(new Remedio(
                         int.Parse(reader["id_medicamento"].ToString()),
                         reader["bula"].ToString(),
@@ -90,9 +93,7 @@ namespace SmartBulaSite.Models
                 con.Close();
                 return lista;
 
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 Console.WriteLine(ex.Message);
@@ -100,10 +101,8 @@ namespace SmartBulaSite.Models
             }
         }
 
-        internal String Salvar(Usuario user)
-        {
-            try
-            {
+        internal String Salvar(Usuario user) {
+            try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
                 MySqlCommand qry = new MySqlCommand(
@@ -118,9 +117,7 @@ namespace SmartBulaSite.Models
                 user = Logar(user.nome, user.senha);
                 con.Close();
                 return "Sucesso, Cadastrado";
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 return "Houve um Erro: " + e;
@@ -128,10 +125,8 @@ namespace SmartBulaSite.Models
         }
 
 
-        internal static Usuario Logar(String email, String password)
-        {
-            try
-            {
+        internal static Usuario Logar(String email, String password) {
+            try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
 
@@ -145,8 +140,7 @@ namespace SmartBulaSite.Models
                 MySqlDataReader leitor = qry.ExecuteReader();
 
 
-                if (leitor.Read())
-                {
+                if (leitor.Read()) {
                     user = new Usuario(
                           int.Parse(leitor["id_usuario"].ToString()),
                           leitor["nome"].ToString(),
@@ -166,9 +160,7 @@ namespace SmartBulaSite.Models
                 con.Close();
 
                 return user;
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
 
@@ -176,10 +168,8 @@ namespace SmartBulaSite.Models
             }
         }
 
-        internal static String Editar(String email, String senha, String senhaNova)
-        {
-            try
-            {
+        internal static String Editar(String email, String senha, String senhaNova) {
+            try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
                 Usuario user = null;
@@ -196,18 +186,14 @@ namespace SmartBulaSite.Models
 
                 con.Close();
                 return "Edit Realizado com Sucesso";
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 return "Ocorreu um Erro no edit: " + e;
             }
         }
-        internal String Excluir()
-        {
-            try
-            {
+        internal String Excluir() {
+            try {
                 con.Open();
                 MySqlCommand qry = new MySqlCommand(
                     "DELETE FROM usuario WHERE nome = @nome and senha=@senha", con);
@@ -217,9 +203,7 @@ namespace SmartBulaSite.Models
                 qry.ExecuteNonQuery();
                 con.Close();
                 return "Excluido com Sucesso";
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
                 return "Houve um erro: " + e;
