@@ -88,7 +88,6 @@ body {
     position: relative;
     overflow: hidden;
     background-attachment: fixed;
-  
 }
 
 
@@ -797,3 +796,66 @@ i {
      
 }                        
 
+/*-------------------------------------------------------------------css bula-------------------------------------------*/
+
+.table{
+    margin-top:10em;
+
+}
+
+
+#t_principioA {
+    color: bisque;
+    margin-top: 10em;
+    text-align: center;
+}
+
+#principioA {
+    color: bisque;
+    margin-top: 1em;
+    text-align: center;
+}
+
+
+#t_resumoBula {
+    color: aqua;
+    margin-top: 10em;
+    text-align: center;
+}
+
+#bulaResumida {
+    color: red;
+    margin: 5em;
+    width: 90%;
+    text-align: center;
+}
+
+
+#t_bula {
+    color:burlywood;
+    margin-top: 10em;
+    text-align: center;
+}
+
+#bulaCompleta {
+    color: blueviolet;
+    margin: 5em;
+    width: 90%;
+    text-align: center;
+}
+
+
+#fundoCard {
+    background-color: #f2f2f0;
+    padding: 1em;
+    box-shadow: 0 -1px 1px #cdcdcd;
+    margin-left: 10em;
+    margin-right: 10em;
+    border-radius: 10px;
+}
+
+.table {
+    background-color: #fff;
+    background-image: linear-gradient(135deg, #ffffff0f 0%, #ffffffab 25%, #ffffff3d 75%, #ffffff 100%), 
+        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIklEQVQoU2N89+7dfwYsQEhIiBEkzDgkFGDzAbIY2Cv4AACvrBgJjYNGfwAAAABJRU5ErkJggg==);
+}
