@@ -41,32 +41,32 @@ namespace SmartBulaSite.Models
 
         public static Boolean favoritar(int id_Usuario, int id_Medicamento) {
             try {
-                if (!(con.State == System.Data.ConnectionState.Open))
+                if (!(con.State == System.Data.ConnectionState.Open)) // Checa caso a conexão esteja abertar, caso sim, não abre.
                     con.Open();
 
                 MySqlCommand checkQuery = new MySqlCommand("SELECT FK_USUARIO_id_usuario FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
                 checkQuery.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 checkQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
-                object result = checkQuery.ExecuteScalar();
+                object result = checkQuery.ExecuteScalar(); // Realiza um busca no banco com os parametros que vão ser cadastrados.
 
-                if (result != null) // Se o like já existe
+                if (result != null) // Se o favorito já existe, entramos na logica de retirar o favoritar
                 {
                     MySqlCommand deleteQuery = new MySqlCommand("DELETE FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
                     deleteQuery.Parameters.AddWithValue("@FK_USUARIO_id_usuario", id_Usuario);
                     deleteQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
-                    deleteQuery.ExecuteNonQuery();
+                    deleteQuery.ExecuteNonQuery(); //Executa o script de deletar.
                     return false;
                 }
 
                 MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES (@id_usuario, @id_medicamento)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 query.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
-                MySqlDataReader reader = query.ExecuteReader();
+                query.ExecuteReader(); //Executa o script de favoritar.
 
                 con.Close();
                 return true;
-            } catch (Exception ex) {
-                if (con.State == System.Data.ConnectionState.Open)
+            } catch (Exception ex) { //Trata caso aja algum erro de exeção.
+                if (con.State == System.Data.ConnectionState.Open) // Checa se a coneção já está aberta, caso sim, executa.
                     con.Close();
                 Console.WriteLine(ex.Message);
                 return false;
@@ -79,9 +79,9 @@ namespace SmartBulaSite.Models
                     con.Open();
                 MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN mendicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
-                MySqlDataReader reader = query.ExecuteReader();
-                List<Remedio> lista = new List<Remedio>();
+                MySqlDataReader reader = query.ExecuteReader(); //Executa script para selecionar todos os medicamentos favoritados pelo usuario.
 
+                List<Remedio> lista = new List<Remedio>(); //Cria uma lista de remedios, para colocar os remedios favoritados.
                 while (reader.Read()) {
                     lista.Add(new Remedio(
                         int.Parse(reader["id_medicamento"].ToString()),
@@ -113,8 +113,8 @@ namespace SmartBulaSite.Models
                 qry.Parameters.AddWithValue("@email", user.email);
                 qry.Parameters.AddWithValue("@senha", user.senha);
 
-                qry.ExecuteNonQuery();
-                user = Logar(user.nome, user.senha);
+                qry.ExecuteNonQuery();//Executa o script de Inserir um usuario no mobile.
+                user = Logar(user.nome, user.senha); //Executa o metodo de logar, para o usuario, para checar.
                 con.Close();
                 return "Sucesso, Cadastrado";
             } catch (Exception e) {
@@ -135,9 +135,9 @@ namespace SmartBulaSite.Models
                 qry.Parameters.AddWithValue("@email", email);
                 qry.Parameters.AddWithValue("@senha", password);
 
-                Usuario user = null;
+                Usuario user = null; //Cria um usuario null, para receber o usuario logado.
 
-                MySqlDataReader leitor = qry.ExecuteReader();
+                MySqlDataReader leitor = qry.ExecuteReader();//Executa o script para chegar se existe um usuario no banco. 
 
 
                 if (leitor.Read()) {
@@ -154,7 +154,7 @@ namespace SmartBulaSite.Models
 
                 user.Senha = leitor.GetString("senha");
 
-                if (!user.Senha.Equals(password))
+                if (!user.Senha.Equals(password))//Por conta do MySql não checa se esta Maiusculo ou Minuculo, pegamos a senha enviada do usuario e comparados com a senha enviado do banco, presente no usuario.
                     return null;
 
                 con.Close();
@@ -179,8 +179,8 @@ namespace SmartBulaSite.Models
                 qry.Parameters.AddWithValue("@senha", senha);
                 qry.Parameters.AddWithValue("@senhaNova", senhaNova);
 
-                if (qry.ExecuteNonQuery() > 0)
-                    user = Logar(email, senhaNova);
+                if (qry.ExecuteNonQuery() > 0) //Executa o script de Editar e checa se algum usuario foi editado no banco ou não, caso sim, retorna a quantiade de linhas editadas, caso não retorna -1.
+                    user = Logar(email, senhaNova);//Loga o usuario novamente.
                 else
                     return "Ocorreu um Erro no edit, Usuario não encontrado";
 
@@ -200,7 +200,7 @@ namespace SmartBulaSite.Models
                 qry.Parameters.AddWithValue("@nome", this.nome);
                 qry.Parameters.AddWithValue("@sobreNome", this.sobreNome);
 
-                qry.ExecuteNonQuery();
+                qry.ExecuteNonQuery();//Executa o script para deletar o usuario.
                 con.Close();
                 return "Excluido com Sucesso";
             } catch (Exception e) {

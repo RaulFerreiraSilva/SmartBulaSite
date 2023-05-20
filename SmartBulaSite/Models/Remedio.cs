@@ -8,14 +8,15 @@ namespace SmartBulaSite.Models
 {
     public class Remedio
     {
-
+        //Criando conexão
         static MySqlConnection con = new MySqlConnection(
             "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
 
+        //Criando variaveis
         private int idMedicamento;
         private string bula, resumoBula, principioAtivo;
 
-
+        //Criando Construtor 
         public Remedio(int idMedicamento, string bula, string resumoBula, string principioAtivo)
         {
             this.idMedicamento = idMedicamento;
@@ -24,6 +25,7 @@ namespace SmartBulaSite.Models
             this.principioAtivo = principioAtivo;
         }
 
+        //Criando Encapsulamento
         public int IdMedicamento { get => idMedicamento; set => idMedicamento = value; }
         public string Bula { get => bula; set => bula = value; }
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
@@ -39,9 +41,9 @@ namespace SmartBulaSite.Models
                     "SELECT * FROM medicamento WHERE principio_ativo = @principio_ativo", con);
                 qry.Parameters.AddWithValue("@principio_ativo", principio_ativo);
 
-                Remedio remedio = null;
+                Remedio remedio = null;// Cria um remedio vazio, para receber o remedio do banco.
 
-                MySqlDataReader leitor = qry.ExecuteReader();
+                MySqlDataReader leitor = qry.ExecuteReader();// Executa o script de busca de remedio do banco.
 
                 if (leitor.Read())
                 {
@@ -50,9 +52,9 @@ namespace SmartBulaSite.Models
                         leitor["bula"].ToString(),
                         leitor["resumo_bula"].ToString(),
                         leitor["principio_ativo"].ToString()
-                        );
+                        ); //preenche o remedio, que estava vazio.
                 }
-                else
+                else //Caso ele não consiga ler, retorna um remedio vazio. 
                 {
                     con.Close();
                     return null;

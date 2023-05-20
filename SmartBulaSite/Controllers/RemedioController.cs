@@ -13,8 +13,9 @@ namespace SmartBulaSite.Controllers
     [Route("api/[controller]")]
     public class RemedioController : ControllerBase
     {
+        //Metodo responsavel, para buscar do remedio do banco.
         [HttpGet]
-        public IActionResult Buscar(string response)
+        public IActionResult Buscar(string response) //Espera receber o nome do remedio.
         {
             return Ok(Remedio.BuscarRemedio(response));
         }

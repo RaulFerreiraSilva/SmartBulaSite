@@ -56,9 +56,9 @@ namespace SmartBulaSite.Controllers
                     // Iterar sobre a lista de objetos "words" e acessar o campo "content" de cada objeto
                     foreach (JObject word in words)
                     {
-                        string principio = (string)word["content"];
+                        string principio = (string)word["content"]; // Coloca as palavras presentes no contente dentro da variavel principio.
 
-                        if (Remedio.BuscarRemedio(principio) != null)
+                        if (Remedio.BuscarRemedio(principio) != null) // Checa se a palavra encontrada, existe no nosso banco de dados, como principio_ativo.
                         {
                             principio_ativo = principio;
                             break;
@@ -71,41 +71,42 @@ namespace SmartBulaSite.Controllers
                 }
             }
 
-            TempData["Medicamento"] = principio_ativo;
+            TempData["Medicamento"] = principio_ativo; // Armezana em um temp data para passar para a outra tela.
 
             return RedirectToAction("Bula", "Home");
         }
 
+        //Metodo responsavel por fazer a chamada e retirada do texto da imagem, api da Azure.
         static async Task<String> MakeRequest(byte[] img)
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
-            // Request headers
+            // Request headers - Chave de conexão para ter acesso a api.
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "6c193a3b7d2747ae8fc02707a665fb7f");
 
-            var uri = "https://scanremedio.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read&";
+            var uri = "https://scanremedio.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read&"; // Url para conexão da api.
 
             HttpResponseMessage response;
 
             using (var content = new ByteArrayContent(img))
             {
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(uri, content);
-                string responseSucess = await response.Content.ReadAsStringAsync();
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream"); // Avisa a api que ela ira receber um arquivo.
+                response = await client.PostAsync(uri, content);//Utiliza o meotodo HttpClient(), para realizar a consulta na api da azure, com a url e a imagem, convertida em um array de Bytes.
+                string responseSucess = await response.Content.ReadAsStringAsync();// realiza a consulta na api da azure.
                 return responseSucess;
             }
         }
 
         public IActionResult Bula()
         {
-            if (TempData["Medicamento"] != null)
+            if (TempData["Medicamento"] != null) //Chega se existe um principio ativo no tempData
             {
-                var principioAtivo = TempData["Medicamento"].ToString();
-                return View(Remedio.BuscarRemedio(principioAtivo));
+                var principioAtivo = TempData["Medicamento"].ToString(); // retira o que esta no tempData e o torna em String.
+                return View(Remedio.BuscarRemedio(principioAtivo)); //Retorna a bula para a tela
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home"); //Caso não exista um principio ativo, retorna para a tela de busca.
         }
 
         public IActionResult Privacy()
