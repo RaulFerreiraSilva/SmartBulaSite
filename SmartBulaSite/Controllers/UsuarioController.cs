@@ -38,7 +38,7 @@ namespace SmartBulaSite.Controllers
 
         //Metodo para favoritar um usuario no banco
         [HttpPost("Favoritar")]
-        public IActionResult Favotirar(int id_Usuario, int id_Medicamento) 
+        public IActionResult Favoritar(int id_Usuario, int id_Medicamento) 
         {
             return Ok(Usuario.favoritar(id_Usuario, id_Medicamento));
         }
