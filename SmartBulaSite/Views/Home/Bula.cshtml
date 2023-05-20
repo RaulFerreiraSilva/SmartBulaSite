@@ -3,58 +3,76 @@
 @{
     ViewData["Title"] = "Bula";
 }
+
 <div class="table module parallax">
 
 
-        @*<div id="t_idMed">
+    @*<div id="t_idMed">
             @Html.DisplayNameFor(model => model.IdMedicamento) "isso aqui innforma o titulo do id do medicamento"
         </div>*@
 
-        @*<div id="idMedi">
+    @*<div id="idMedi">
             @Html.DisplayFor(modelItem => modelItem.IdMedicamento) "isso informa o id do medicamento"
         </div>*@
 
 
-        <div id="fundoCard">
-         
-
-            <div id="t_principioA">
-                @Html.DisplayNameFor(model => model.PrincipioAtivo)
-            </div>
-
-
-            <div id="principioA">
-                @Html.DisplayFor(modelItem => modelItem.PrincipioAtivo)
-            </div>
 
 
 
+    <div id="fundoCard">
 
 
-            <div id="t_bula">
-                @Html.DisplayNameFor(model => model.Bula)
-            </div>
-
-
-            <div id="bulaCompleta">
-                @Html.DisplayFor(modelItem => modelItem.Bula)
-            </div>
-
-
-
-
-
-            <div id="t_resumoBula">
-                @Html.DisplayNameFor(model => model.ResumoBula)
-            </div>
-
-
-            <div id="bulaResumida">
-                @Html.DisplayFor(modelItem => modelItem.ResumoBula)
-            </div>
-
-
+        <div id="t_bula">
+            @Html.DisplayNameFor(model => model.Bula)
         </div>
 
-   
+        <div id="buttonBula">
+
+            <div class="switch">
+                <input name="radio" type="radio" value="optionone" id="optionone" checked>
+                <label for="optionone" class="labelButton">Completa</label>
+
+                <input name="radio" type="radio" value="optiontwo" id="optiontwo">
+                <label for="optiontwo" class="right labelButton">Resumida</label>
+
+                <span aria-hidden="true"></span>
+            </div>
+        </div>
+
+
+        <div id="t_principioA">
+            @Html.DisplayNameFor(model => model.PrincipioAtivo)
+        </div>
+
+
+        <div id="principioA">
+            @Html.DisplayFor(modelItem => modelItem.PrincipioAtivo)
+        </div>
+
+
+        <div id="bulaCompleta">
+            @Html.DisplayFor(modelItem => modelItem.Bula)
+        </div>
+
+
+
+
+
+        <div id="t_resumoBula">
+            @Html.DisplayNameFor(model => model.ResumoBula)
+        </div>
+
+
+        <div id="bulaResumida">
+            @Html.DisplayFor(modelItem => modelItem.ResumoBula)
+        </div>
+
+        <section>
+            <a href="#" class="btn"></a>
+        </section>
+
+
+    </div>
+
+
 </div>

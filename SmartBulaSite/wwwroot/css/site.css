@@ -164,7 +164,10 @@ h3 {
     height: 400px;
 }
 
-
+#QRcode {
+    height: 150px;
+    width: 150px;
+}
 
 
 
@@ -649,6 +652,7 @@ i {
 }
 
 #btnDonwload {
+    width: 90%;
     height: 40px;
     background: #fff;
     border-radius: 10px;
@@ -658,24 +662,31 @@ i {
     padding-bottom: 40px;
     font-size: 20px;
     margin-top: 0.5em;
+    display:flex;
 }
 
 #btnDonwload a {
     text-decoration: none;
     color: black;
+    margin-left: 5%;
 }
 
-    #btnDonwload a:hover {
-        text-decoration: none;
-        color: white;
-        transition: 0.5s;
-    }
+#btnDonwload a:hover {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+}
 
 #btnDonwload:hover {
     background-color: #b4d2d9;
     transition: 0.5s;
     color: white;
     cursor: pointer;
+}
+
+.iconStore{
+ padding-top: 5%;
+
 }
 
 .p_qm {
@@ -798,64 +809,142 @@ i {
 
 /*-------------------------------------------------------------------css bula-------------------------------------------*/
 
-.table{
-    margin-top:10em;
-
-}
-
 
 #t_principioA {
-    color: bisque;
-    margin-top: 10em;
+    color: black;
+    margin-top: 5em;
     text-align: center;
+    font-size: 25px;
 }
 
 #principioA {
-    color: bisque;
+    color: black;
     margin-top: 1em;
     text-align: center;
+    font-size: 20px;
 }
 
 
 #t_resumoBula {
-    color: aqua;
+    color: black;
     margin-top: 10em;
     text-align: center;
+    font-size: 25px;
 }
 
 #bulaResumida {
-    color: red;
+    color: black;
     margin: 5em;
     width: 90%;
     text-align: center;
+    font-size: 20px;
 }
 
 
 #t_bula {
-    color:burlywood;
-    margin-top: 10em;
+    color: black;
+    margin-top: 1em;
     text-align: center;
+    font-size: 25px;
 }
 
 #bulaCompleta {
-    color: blueviolet;
+    color: black;
     margin: 5em;
     width: 90%;
     text-align: center;
+    font-size: 20px;
 }
 
 
 #fundoCard {
     background-color: #f2f2f0;
     padding: 1em;
-    box-shadow: 0 -1px 1px #cdcdcd;
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-left: 18em;
+    margin-right: 20em;
     border-radius: 10px;
+    width: 70%;
+    margin-top: 5em;
 }
 
 .table {
     background-color: #fff;
+   /* background-image: url(../images/imgFundoBula.png);*/
     background-image: linear-gradient(135deg, #ffffff0f 0%, #ffffffab 25%, #ffffff3d 75%, #ffffff 100%), 
         url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIklEQVQoU2N89+7dfwYsQEhIiBEkzDgkFGDzAbIY2Cv4AACvrBgJjYNGfwAAAABJRU5ErkJggg==);
+}
+
+
+/*--------------------------------------------------button------------------------------------------------*/
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+@mixin clearfix {
+    zoom: 1;
+
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+#buttonBula {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    padding-top: 30px;
+}
+
+.switch {
+    background-color: #b4d2d9;
+    width: 40%;
+    display: inline-block;
+    border-radius: 8px;
+    height: 50px;
+    padding: 5px;
+    position: relative;
+}
+
+.labelButton {
+    float: left;
+    width: 50%;
+    position: relative;
+    z-index: 2;
+    line-height: 40px;
+    cursor: pointer;
+    color: #0000008a;
+}
+
+input[type="radio"] {
+    display: none;
+
+    &:checked + label{
+    color: black;
+    font-weight: bold;
+  }
+}
+
+span {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: block;
+    border-radius: 5px 0 0 5px;
+    background-color: #698c8c;
+    transition: all 200ms ease;
+    &.right: {
+    left: 50%;
+    border-radius: 0 5px 5px 0;
+    transition: all 200ms ease;
+    }
+  }
 }
