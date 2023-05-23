@@ -36,7 +36,7 @@ btn_subir.click(function () {
 const videoPlayer = document.getElementById("videoPlayer");
 
 videoPlayer.addEventListener('timeupdate', function (event) {
-    if (videoPlayer.currentTime >= 35) { //defina traves de segundos. Ex: 120s = 2 minutos
+    if (videoPlayer.currentTime >= 3) { //defina traves de segundos. Ex: 120s = 2 minutos do video
         document.querySelector('.text_baixar').style.display = "block";
     } else {
         document.querySelector('.text_baixar').style.display = "none";
