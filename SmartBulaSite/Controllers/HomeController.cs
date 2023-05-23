@@ -33,11 +33,6 @@ namespace SmartBulaSite.Controllers
         }
 
 
-
-
-
-
-
         [HttpPost]
         public async Task<IActionResult> Index(string principio_ativo)
         {
