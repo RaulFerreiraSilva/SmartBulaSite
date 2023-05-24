@@ -10,18 +10,20 @@ namespace SmartBulaSite.Models
     {
         //Criando conexão
         static MySqlConnection con = new MySqlConnection(
-            "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
+            "server=ESN509VMYSQL;database=db_smart_bula_v2;user id=aluno; password=Senai1234");
 
         //Criando variaveis
         private int idMedicamento;
-        private string bula, resumoBula, principioAtivo;
+        private string bula, resumoBula, principioAtivo, contraIndicacao, recomendadoPara;
 
         //Criando Construtor 
-        public Remedio(int idMedicamento, string bula, string resumoBula, string principioAtivo)
+        public Remedio(int idMedicamento, string bula, string resumoBula, string contraIndicacao, string recomendadoPara, string principioAtivo)
         {
             this.idMedicamento = idMedicamento;
             this.bula = bula;
             this.resumoBula = resumoBula;
+            this.contraIndicacao = contraIndicacao;
+            this.recomendadoPara = recomendadoPara;
             this.principioAtivo = principioAtivo;
         }
 
@@ -29,6 +31,8 @@ namespace SmartBulaSite.Models
         public int IdMedicamento { get => idMedicamento; set => idMedicamento = value; }
         public string Bula { get => bula; set => bula = value; }
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
+        public string ContraIndicacao { get => contraIndicacao; set => contraIndicacao = value; }
+        public string RecomendadoPara { get => recomendadoPara; set => recomendadoPara = value; }
         public string PrincipioAtivo { get => principioAtivo; set => principioAtivo = value; }
 
         internal static Remedio BuscarRemedio(string principio_ativo)
@@ -51,6 +55,8 @@ namespace SmartBulaSite.Models
                         int.Parse(leitor["id_Medicamento"].ToString()),
                         leitor["bula"].ToString(),
                         leitor["resumo_bula"].ToString(),
+                        leitor["contra_indicacao"].ToString(),
+                        leitor["recomendado_para"].ToString(),
                         leitor["principio_ativo"].ToString()
                         ); //preenche o remedio, que estava vazio.
                 }

@@ -9,13 +9,10 @@ namespace SmartBulaSite.Models
     public class Usuario
     {
         static MySqlConnection con = new MySqlConnection(
-            "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
+            "server=ESN509VMYSQL;database=db_smart_bula_v2;user id=aluno; password=Senai1234");
         private string nome, sobreNome, email, senha;
         private DateTime dataNasc;
         private int id_Usuario;
-        private int id_favorito;
-        private int FK_USUARIO_id_usuario;
-        private int FK_MEDICAMENTO_id_Medicamento;
 
         public Usuario(int id_Usuario, string nome, string sobreNome, DateTime dataNasc, string email, string senha) {
             this.id_Usuario = id_Usuario;
@@ -26,11 +23,6 @@ namespace SmartBulaSite.Models
             this.senha = senha;
         }
 
-        public Usuario(int id_favorito, int fK_USUARIO_id_usuario, int fK_MEDICAMENTO_id_Medicamento) {
-            this.id_favorito = id_favorito;
-            FK_USUARIO_id_usuario = fK_USUARIO_id_usuario;
-            FK_MEDICAMENTO_id_Medicamento = fK_MEDICAMENTO_id_Medicamento;
-        }
 
         public int Id_Usuario { get => id_Usuario; set => id_Usuario = value; }
         public string Nome { get => nome; set => nome = value; }
@@ -87,6 +79,8 @@ namespace SmartBulaSite.Models
                         int.Parse(reader["id_medicamento"].ToString()),
                         reader["bula"].ToString(),
                         reader["resumo_bula"].ToString(),
+                        reader["contra_indicacao"].ToString(),
+                        reader["recomendado_para"].ToString(),
                         reader["principio_ativo"].ToString()
                        ));
                 }

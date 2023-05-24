@@ -9,7 +9,7 @@ namespace SmartBulaSite.Models
     public class Alergia
     {
         static MySqlConnection con = new MySqlConnection(
-          "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
+            "server=ESN509VMYSQL;database=db_smart_bula_v2;user id=aluno; password=Senai1234");
         private string tipo_Alergia;
         private int id_Alergia;
 

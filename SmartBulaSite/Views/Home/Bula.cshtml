@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Bula";
 }
+
 <table class="table">
     <thead>
         <tr>
@@ -26,7 +27,7 @@
                 @Html.DisplayFor(modelItem => modelItem.IdMedicamento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => modelItem.Bula)
+                @Html.Raw(Model.Bula)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => modelItem.ResumoBula)
