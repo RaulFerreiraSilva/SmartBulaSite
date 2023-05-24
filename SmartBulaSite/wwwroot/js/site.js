@@ -54,3 +54,21 @@ $('.switch label').on('click', function () {
         $(indicator).removeClass('right');
     }
 });
+
+//////////////////////////////////////////////////////////
+
+function trocarTexto() {
+    var botao = document.getElementById("meuBotao");
+    var texto1 = document.getElementById("texto1");
+    var texto2 = document.getElementById("texto2");
+
+    if (texto1.style.display !== "none") {
+        texto1.style.display = "none";
+        texto2.style.display = "block";
+        botao.innerHTML = "Clique novamente";
+    } else {
+        texto1.style.display = "block";
+        texto2.style.display = "none";
+        botao.innerHTML = "Clique aqui";
+    }
+}

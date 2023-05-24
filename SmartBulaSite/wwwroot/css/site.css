@@ -11,7 +11,10 @@ html{
     scroll-behavior: smooth;
 }
 .navbar {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/fundo.jpg);
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.1);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -124,7 +127,7 @@ button.accept-policy {
 
 
 
-#tituloHome {
+.tituloHome {
     font-size: 4.5rem;
     color: white;
     margin-top: 5rem;
@@ -781,17 +784,12 @@ i {
     width: 100%;
     z-index: 0;
     margin-top: -1em;
-    /*----------------------*/
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 500px;
+    
 }
 
 
 .text_baixar p {
-    width: 700px;
-    margin-left: 17em;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 #grid1Baixar{
@@ -799,11 +797,52 @@ i {
     float:left;
 }
 
-#grid2Baixar{
-    text-align:center;
-    float:right;
+#cellBaixar {
+    transform: rotate(90deg) scale(1.3);
+    margin-top: 10em;
 }
 
+#grid2Baixar{
+  
+  
+}
+
+#tituloBaixar {
+    font-size: 4.0rem;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+
+#textosBaixar {
+    text-align: left;
+    margin-top: 5em;
+}
+
+.btnBaixar {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 25px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    margin-top: 4em;
+}
+
+    .btnBaixar:hover {
+        background-color: #698c8c /*#b4d2d9*/;
+    }
+
+    .btnBaixar:focus {
+  outline: none; 
+}
+
+.playStore {
+    float: right;
+    transform: scale(0.3);
+    margin-right: -30em;
+}
 
 #videoPlayer {
     position: absolute;
@@ -814,6 +853,7 @@ i {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.5s;
 }                        
 
 /*-------------------------------------------------------------------css bula-------------------------------------------*/
@@ -956,4 +996,13 @@ span {
     transition: all 200ms ease;
     }
   }
+}
+
+
+#texto1, #texto2 {
+    font-size: 16px;
+}
+
+#texto2 {
+    display: none;
 }
