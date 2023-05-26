@@ -1006,3 +1006,60 @@ span {
 #texto2 {
     display: none;
 }
+
+
+
+
+
+/* Botões bula */
+.button-container {
+    display: flex;
+    background-color: #b4d2d9;
+    border-radius: 10px;
+    width: 190px;
+}
+
+    .button-container:focus {
+        outline: none;
+    }
+
+.button {
+    padding: 10px 20px;
+    background-color: #b4d2d9;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    border-radius: 10px;
+}
+
+    .button.option1 {
+        color: #000;
+    }
+    .button.option1:focus{
+        outline: none;
+    }
+
+    .button.option2 {
+        color: #000;
+    }
+    .button.option2 {
+        outline: none;
+    }
+
+    .button.selected {
+        background-color: #698c8c;
+        color: #fff;
+    }
+
+.summary {
+    display: none;
+    padding: 20px;
+}
+
+    .summary.option1 {
+        display: block;
+    }
+
+    .summary.option2 {
+        display: none;
+    }
