@@ -31,37 +31,37 @@ namespace SmartBulaSite.Models
         public string Email { get => email; set => email = value; }
         public string Senha { get => senha; set => senha = value; }
 
-        public static Boolean favoritar(int id_Usuario, int id_Medicamento) {
+        public static String favoritar(int id_Usuario, int id_Medicamento) {
             try {
                 if (!(con.State == System.Data.ConnectionState.Open)) // Checa caso a conexão esteja abertar, caso sim, não abre.
                     con.Open();
 
-                MySqlCommand checkQuery = new MySqlCommand("SELECT FK_USUARIO_id_usuario FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
+                MySqlCommand checkQuery = new MySqlCommand("SELECT FK_USUARIO_id_usuario FROM MEDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
                 checkQuery.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 checkQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
                 object result = checkQuery.ExecuteScalar(); // Realiza um busca no banco com os parametros que vão ser cadastrados.
 
                 if (result != null) // Se o favorito já existe, entramos na logica de retirar o favoritar
                 {
-                    MySqlCommand deleteQuery = new MySqlCommand("DELETE FROM MENDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
+                    MySqlCommand deleteQuery = new MySqlCommand("DELETE FROM MEDICAMENTO_FAVORITO WHERE FK_USUARIO_id_usuario = @FK_USUARIO_id_usuario AND FK_MEDICAMENTO_id_Medicamento = @id_medicamento", con);
                     deleteQuery.Parameters.AddWithValue("@FK_USUARIO_id_usuario", id_Usuario);
                     deleteQuery.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
                     deleteQuery.ExecuteNonQuery(); //Executa o script de deletar.
-                    return false;
+                    return "Deslike";
                 }
 
-                MySqlCommand query = new MySqlCommand("INSERT INTO MENDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES (@id_usuario, @id_medicamento)", con);
+                MySqlCommand query = new MySqlCommand("INSERT INTO MEDICAMENTO_FAVORITO (FK_USUARIO_id_usuario, FK_MEDICAMENTO_id_Medicamento) VALUES (@id_usuario, @id_medicamento)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 query.Parameters.AddWithValue("@id_medicamento", id_Medicamento);
                 query.ExecuteReader(); //Executa o script de favoritar.
 
                 con.Close();
-                return true;
+                return "Like";
             } catch (Exception ex) { //Trata caso aja algum erro de exeção.
                 if (con.State == System.Data.ConnectionState.Open) // Checa se a coneção já está aberta, caso sim, executa.
                     con.Close();
                 Console.WriteLine(ex.Message);
-                return false;
+                return "Deu erro: " + ex;
             }
         }
 
@@ -69,7 +69,7 @@ namespace SmartBulaSite.Models
             try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
-                MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN mendicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
+                MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, contra_indicacao, recomendado_para, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN medicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 MySqlDataReader reader = query.ExecuteReader(); //Executa script para selecionar todos os medicamentos favoritados pelo usuario.
 
