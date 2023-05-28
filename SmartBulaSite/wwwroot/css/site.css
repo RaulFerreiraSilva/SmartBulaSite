@@ -10,6 +10,7 @@ for details on configuring this project to bundle and minify static web assets. 
 html{
     scroll-behavior: smooth;
 }
+
 .navbar {
     z-index: 99;
     position: fixed;
@@ -18,13 +19,11 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    position: sticky;
 }
 
 .navbar-nav {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
     margin-top: 20px;
     list-style: none;
     margin-left: 10em;
