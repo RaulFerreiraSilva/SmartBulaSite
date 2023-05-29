@@ -48,7 +48,7 @@ namespace SmartBulaSite.Controllers
         public IActionResult ListaFavotirar(int id_Usuario)
         {
             return Ok(Usuario.listaFavoritar(id_Usuario));
-        }
+         }
 
         //Metodo para excluir um usuario no banco
         [HttpDelete("Excluir")]
