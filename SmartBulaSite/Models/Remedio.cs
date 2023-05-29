@@ -8,25 +8,31 @@ namespace SmartBulaSite.Models
 {
     public class Remedio
     {
-
+        //Criando conexão
         static MySqlConnection con = new MySqlConnection(
-            "server=ESN509VMYSQL;database=db_smart_bula;user id=aluno; password=Senai1234");
+            "server=ESN509VMYSQL;database=db_smart_bula_v2;user id=aluno; password=Senai1234");
 
+        //Criando variaveis
         private int idMedicamento;
-        private string bula, resumoBula, principioAtivo;
+        private string bula, resumoBula, principioAtivo, contraIndicacao, recomendadoPara;
 
-
-        public Remedio(int idMedicamento, string bula, string resumoBula, string principioAtivo)
+        //Criando Construtor 
+        public Remedio(int idMedicamento, string bula, string resumoBula, string contraIndicacao, string recomendadoPara, string principioAtivo)
         {
             this.idMedicamento = idMedicamento;
             this.bula = bula;
             this.resumoBula = resumoBula;
+            this.contraIndicacao = contraIndicacao;
+            this.recomendadoPara = recomendadoPara;
             this.principioAtivo = principioAtivo;
         }
 
+        //Criando Encapsulamento
         public int IdMedicamento { get => idMedicamento; set => idMedicamento = value; }
         public string Bula { get => bula; set => bula = value; }
         public string ResumoBula { get => resumoBula; set => resumoBula = value; }
+        public string ContraIndicacao { get => contraIndicacao; set => contraIndicacao = value; }
+        public string RecomendadoPara { get => recomendadoPara; set => recomendadoPara = value; }
         public string PrincipioAtivo { get => principioAtivo; set => principioAtivo = value; }
 
         internal static Remedio BuscarRemedio(string principio_ativo)
@@ -39,9 +45,9 @@ namespace SmartBulaSite.Models
                     "SELECT * FROM medicamento WHERE principio_ativo = @principio_ativo", con);
                 qry.Parameters.AddWithValue("@principio_ativo", principio_ativo);
 
-                Remedio remedio = null;
+                Remedio remedio = null;// Cria um remedio vazio, para receber o remedio do banco.
 
-                MySqlDataReader leitor = qry.ExecuteReader();
+                MySqlDataReader leitor = qry.ExecuteReader();// Executa o script de busca de remedio do banco.
 
                 if (leitor.Read())
                 {
@@ -49,10 +55,12 @@ namespace SmartBulaSite.Models
                         int.Parse(leitor["id_Medicamento"].ToString()),
                         leitor["bula"].ToString(),
                         leitor["resumo_bula"].ToString(),
+                        leitor["contra_indicacao"].ToString(),
+                        leitor["recomendado_para"].ToString(),
                         leitor["principio_ativo"].ToString()
-                        );
+                        ); //preenche o remedio, que estava vazio.
                 }
-                else
+                else //Caso ele não consiga ler, retorna um remedio vazio. 
                 {
                     con.Close();
                     return null;

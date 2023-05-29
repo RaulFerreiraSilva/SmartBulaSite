@@ -12,6 +12,7 @@ namespace SmartBulaSite.Controllers
     [Route("api/[controller]")]
     public class AlergiaController : ControllerBase
     {
+        //Metodo reponsavel para Salvar uma alergia.
         [HttpPost("Salvar")]
         public IActionResult AlergiaCadastrar(String tipoAlergia)
         {
@@ -19,7 +20,7 @@ namespace SmartBulaSite.Controllers
             return Ok(alergia.cadastrarAlergia());
         }
 
-
+        //Metodo responsavel para ligar uma alergia a um usuario. 
         [HttpPost("AlergiaUsuario")]
         public IActionResult alergiaUsuario(int id_Usuario, String tipoAlergia)
         {
@@ -28,11 +29,13 @@ namespace SmartBulaSite.Controllers
             return Ok(alergia.alergiaUsuario(id_Usuario));
         }
 
+        //Metodo responsavel para listar as alergias.  
         [HttpPost("Listar")]
         public IActionResult Listar() {
             return Ok(Alergia.listar());
         }
 
+        //Metodo responsavel para listar as alergias do usuario.
         [HttpPost("ListarAlergiaUsuario")]
         public IActionResult ListarAlergiaUsuario(int usuarioId)
         {

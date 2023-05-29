@@ -132,6 +132,10 @@ button.accept-policy {
     margin-top: 5rem;
 }
 
+table tbody tr td h1, table tbody tr td h3 {
+    color: red;
+}
+
 h3 {
     font-family: 'Ubuntu', sans-serif;
     
