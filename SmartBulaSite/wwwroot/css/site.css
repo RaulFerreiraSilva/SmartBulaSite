@@ -8,7 +8,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 html{
-   /* scroll-behavior: smooth;*/
+   scroll-behavior: smooth; 
 }
 
 .navbar {
@@ -87,7 +87,7 @@ body {
     margin: 0;
     text-align: center;
     background-position: center 70%;
-    transform: translateY(-30%);
+    transform: translateY(-10%);
 }
 .module.parallax {
     position: relative;
@@ -98,7 +98,6 @@ body {
 
 
 .p2 {
-    margin-top: 5%;
     color: #1e3c40;
     font-size: 35px;
     text-align: center;
@@ -132,7 +131,7 @@ button.accept-policy {
 .tituloHome {
     font-size: 4.5rem;
     color: white;
-    margin-top: 5rem;
+    margin-top: 13rem;
 }
 
 table tbody tr td h1, table tbody tr td h3 {
@@ -240,13 +239,11 @@ label.teste {
     text-transform: uppercase;
     text-align: center;
     display: block;
-    margin-top: 10px;
     cursor: pointer;
     position: absolute;
-    top: 30rem;
     left: 50rem;
     z-index: 2;
-
+    margin-top: 5em;
 }
 
     .zone:hover {
