@@ -1,4 +1,27 @@
-﻿//Coloca o botão em uma varivel
+﻿/////////////////////////////////////////////////tamanho fonte////////////////////////////////////////
+
+document.addEventListener("DOMContentLoaded", function () {
+    const fonteMaior = document.getElementById("fonteMaior");
+    const fonteMenor = document.getElementById("fonteMenor");
+    const texto = document.getElementById("bulaCompleta");
+
+    fonteMaior.addEventListener("click", function () {
+        const fontSize = window.getComputedStyle(texto).fontSize;
+        const newSize = parseFloat(fontSize) + 2;
+        texto.style.fontSize = newSize + "px";
+    });
+
+    fonteMenor.addEventListener("click", function () {
+        const fontSize = window.getComputedStyle(texto).fontSize;
+        const newSize = parseFloat(fontSize) - 2;
+        texto.style.fontSize = newSize + "px";
+    });
+
+});
+
+
+
+//Coloca o botão em uma varivel
 var btn_subir = $(".btn");
 
 
@@ -78,4 +101,5 @@ function selectOption(option) {
     selectedButton.classList.add('selected');
     selectedSummary.style.display = 'block';
 }
+
 

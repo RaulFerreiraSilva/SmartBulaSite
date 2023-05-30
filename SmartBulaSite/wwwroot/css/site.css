@@ -8,7 +8,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 html{
-    scroll-behavior: smooth;
+   /* scroll-behavior: smooth;*/
 }
 
 .navbar {
@@ -27,6 +27,7 @@ html{
     margin-top: 20px;
     list-style: none;
     margin-left: 10em;
+
 }
 
 .linkBar {
@@ -85,6 +86,8 @@ body {
     background-size: cover;
     margin: 0;
     text-align: center;
+    background-position: center 70%;
+    transform: translateY(-30%);
 }
 .module.parallax {
     position: relative;
@@ -864,22 +867,23 @@ i {
 
 #t_principioA {
     color: black;
-    margin-top: 5em;
+    margin-top: 3em;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
+    font-weight:bold;
 }
 
 #principioA {
     color: black;
     margin-top: 1em;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 
 #t_resumoBula {
     color: black;
-    margin-top: 10em;
+    margin-top: 3em;
     text-align: center;
     font-size: 25px;
 }
@@ -897,15 +901,8 @@ i {
     color: black;
     margin-top: 1em;
     text-align: center;
-    font-size: 25px;
-}
-
-#bulaCompleta {
-    color: black;
-    margin: 5em;
-    width: 90%;
-    text-align: center;
-    font-size: 20px;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 
@@ -1019,7 +1016,9 @@ span {
     display: flex;
     background-color: #b4d2d9;
     border-radius: 10px;
-    width: 190px;
+    width: 250px;
+    margin-left: 40%;
+    margin-top: 3em;
 }
 
     .button-container:focus {
@@ -1052,6 +1051,7 @@ span {
     .button.selected {
         background-color: #698c8c;
         color: #fff;
+        width:100%;
     }
 
 .summary {
@@ -1066,3 +1066,84 @@ span {
     .summary.option2 {
         display: none;
     }
+
+
+
+ /*   bula*/
+
+#bulaCompleta h1 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaCompleta h2 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaCompleta p {
+    color: black;
+  
+}
+
+
+
+#bulaCompleta ul {
+    color: black;
+    margin-top: 1em;
+
+}
+
+#bulaCompleta h3 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaCompleta {
+    color: black;
+    margin: 5em;
+    width: 90%;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/*tamanho datalist fonte bula*/
+
+
+#fonteMaior {
+    font-weight: bold;
+    font-size: 26px;
+    border-radius: 50px;
+    border: none;
+    background-color: #b4d2d9;
+    padding: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+#fonteMenor {
+    font-weight: bold;
+    font-size: 26px;
+    border-radius: 30px;
+    border: none;
+    background-color: #b4d2d9;
+    padding: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+
+
+ 
+ 
