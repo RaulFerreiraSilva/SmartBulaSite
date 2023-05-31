@@ -59,7 +59,7 @@ btn_subir.click(function () {
 const videoPlayer = document.getElementById("videoPlayer");
 
 videoPlayer.addEventListener('timeupdate', function (event) {
-    if (videoPlayer.currentTime >= 3) { //defina traves de segundos. Ex: 120s = 2 minutos do video
+    if (videoPlayer.currentTime >= 20) { //defina traves de segundos. Ex: 120s = 2 minutos do video
         document.querySelector('.text_baixar').style.display = "block";
     } else {
         document.querySelector('.text_baixar').style.display = "none";
@@ -101,5 +101,16 @@ function selectOption(option) {
     selectedButton.classList.add('selected');
     selectedSummary.style.display = 'block';
 }
+
+////////////////////////////////////////////////////////////////
+// Aguardar 6 segundos
+setTimeout(function () {
+    // Remover a tela de loading
+    document.querySelector('.loading-screen').style.display = 'none';
+    // Exibir a tela de home
+    document.querySelector('.home-screen').style.display = 'block';
+}, 5000);
+
+
 
 
