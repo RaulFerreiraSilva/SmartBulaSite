@@ -1,36 +1,239 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@model IEnumerable<SmartBulaSite.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Listar";
 }
-<body class="text-center">
 
-    <h1 id="tituloHome">Descubra que medicamento é esse!</h1>
-    <h3>Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
 
-    <form id="formulario" method="post" enctype="multipart/form-data">
-        <input id="inputps" type="text" maxlength="50" style="color: #f00; font-style: italic" name="principio_ativo" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
-        <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30" />
 
-        <center>
+<body>
 
-            <label class="teste" for="file">Enviar arquivo</label>
-            <div class="zoneUm">
-                <input onchange="javascript: submitform()" class="zone" type="file" name="files[]" id="file">
+    <div id="home" class="module parallax">
+        <h1 class="tituloHome">Descubra que medicamento é esse!</h1>
+        <h3 class="text-white">Basta inserir um nome ou uma imagem do medicamento desejado.</h3>
+
+
+
+
+        <form id="formulario" method="post" enctype="multipart/form-data">
+
+            <input id="inputps" type="text" name="principio_ativo" maxlength="50" style="color: #000; font-style: italic" size="80" validateempty="true" placeholder="Digite o nome do medicamento" focusempty="false" />
+            <input type="submit" class="submit" value="Procurar" id="btnSearch" size="30">
+
+            <center>
+
+
+                <label class="teste" for="file">Enviar arquivo</label>
+                <div class="zoneUm">
+                    <input onchange="javascript: submitform()" class="zone" type="file" name="files[]" id="file">
+                </div>
+
+                <div id="dropZ">
+                </div>
+            </center>
+        </form>
+    </div>
+
+
+
+    <p class="p2" id="sectionCuriosidades">Conheça os principais tipos de medicamentos mais consumidos e sua respectiva função.</p>
+
+    <div class="wrapper">
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-prescription-bottle-medical icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>​Antibiótico</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/Antibioticos">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-pills icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Antiácidos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/Antiacidos">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-vial-circle-check icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Vitaminas</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/Vitaminas">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-teeth icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>​Anti-inflamatório</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/AntiInflamatorio">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-head-side-cough-slash icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Antialérgicos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/Antialergicos">SABER MAIS</a>
+        </div>
+
+
+
+        <div>
+            <div class="icon fa-4x">
+                <i class="fa-solid fa-notes-medical icone" style="color: #ffffff;"></i>
+            </div>
+            <h3>Analgésicos</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a class="saber" href="Home/Analgesicos">SABER MAIS</a>
+        </div>
+
+    </div>
+    <!------------------------------------------------------------------------------------------->
+
+    <div id="fundo2_qm">
+        <div id="base_qm">
+            <h3 class="p2">O que é Smart ​B​ula?</h3>
+            <p class="p_qm">
+                Sample text. Click to select the text box. Click again or double click to start editing the text. Dictum non consectetur a erat nam at.
+                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae.Texto de amostra. Confira os principais tipos de medicamentos para diabe
+                tes e sua respectiva função.Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.Texto de amostr
+                a. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.Confira os principais tipos de medicamentos para diabetes
+                e sua respectiva função.Confira os principais tipos de medicamentos para diabetes e sua respectiva
+            </p>
+
+
+        </div>
+
+
+    </div>
+    <!------------------------------------------------------------------------------------------->
+    <div id="baixar">
+
+        <section class="fundo_video">
+            <video id="videoPlayer" playsinline autoplay muted loop src="~/images/pptSmartBula.mp4"></video> @*autoplay controls *@
+
+
+        <div class="text_baixar">
+
+            <div id="grid1Baixar">
+                <img id="cellBaixar" src="~/images/cell2.gif" />
+
             </div>
 
-            <!--<div>
-                <p>Arraste a imagem aqui, tamanho máximo de 3MB ou selecione acima.</p>
+            <div id="grid2Baixar">
+                <div id="textosBaixar">
+                    <h4 id="">NÃO FIQUE DE FORA. BAIXE NOSSO APP! </h4>
+                    <h3 id="tituloBaixar">Smart Bula</h3>
+                    <p>
+                        Para um melhor proveito baixe o Smart Bula e escaneie em segundos medicamentos que não são de seu conhecimento para obter suas características, funções, origens e muito mais.
+                    </p>
+
+                    <button class="btnBaixar">Baixe agora</button>
+
+
+                </div>
+
+            </div>
+            <img class="playStore" src="~/images/PlayStore.png" />
+
+        </div>
+          
+        </section>
+
+    </div>
+
+    <!------------------------------------------------------------------------------------------->
+
+    <img class="img_QM" src="~/images/code.png" />
+    <section id="cardsQM">
+
+
+
+        <div class="card_qm">
+            <div>
+                <img class="img_qm" src="~/images/android.png" />
             </div>
 
-            <div id="textFile">
-                <div class="selectFile">-->
-            <!--Isso é oq abre o explorador de arquivos -->
-            <!--</div>
-            </div>-->
+            <h3 class="negrito">​Guilherme</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a href="http://www.instagram.com"><i class="fa-brands fa-instagram fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="http://www.linkedin.com/in/guilherme-scarlati-383a7b1a8"><i class="fa-brands fa-linkedin fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="http://www.github.com/Guilherm3Scarlati "><i class="fa-brands fa-square-github fa-2x icons_qm" style="color: #1e3c40;"></i></a>
 
-            <div id="dropZ">
+        </div>
+
+
+
+        <div class="card_qm">
+            <div>
+                <img class="img_qm" src="~/images/front.png" />
             </div>
-        </center>
-    </form>
+
+            <h3 class="negrito">Mariana</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a href="http://www.instagram.com"><i class="fa-brands fa-instagram fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="http://www.linkedin.com/in/mariana-polycarpo-27b27b192"><i class="fa-brands fa-linkedin fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="https://github.com/Polycarpoo"><i class="fa-brands fa-square-github fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+        </div>
+
+
+
+        <div class="card_qm">
+            <div>
+                <img class="img_qm" src="~/images/back.png" />
+            </div>
+
+            <h3 class="negrito">Raul</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a href="http://www.instagram.com"><i class="fa-brands fa-instagram fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="https://www.linkedin.com/in/raul-ferreira-silva-53a785190/"><i class="fa-brands fa-linkedin fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="http://www.github.com/RaulFerreiraSilva"><i class="fa-brands fa-square-github fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+        </div>
+
+
+
+        <div class="card_qm">
+            <div>
+                <img class="img_qm" src="~/images/front2.png" />
+            </div>
+
+            <h3 class="negrito">Tatiane</h3>
+            <p class="p">Texto de amostra. Confira os principais tipos de medicamentos para diabetes e sua respectiva função.</p>
+            <br>
+            <a href="http://www.instagram.com"><i class="fa-brands fa-instagram fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="http://www.linkedin.com/in/tatiane-oliveira-b7b174213"><i class="fa-brands fa-linkedin fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+            <a href="https://www.github.com/TatiOlive"><i class="fa-brands fa-square-github fa-2x icons_qm" style="color: #1e3c40;"></i></a>
+        </div>
+    </section>
+
+    <section>
+        <a href="#" class="btn"></a>
+    </section>
 </body>
 
 <script type="text/javascript">

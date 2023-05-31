@@ -1,0 +1,385 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    margin:0;
+}
+
+
+.imgAntiinflamatorio {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/img1.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 70%;
+    transform: translateY(-30%);
+}
+
+.imgVitaminas {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/vitaminas.png) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 50%;
+    transform: translateY(-30%);
+}
+
+
+.imgAnalgesicos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/analgesico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 15%;
+    transform: translateY(-30%);
+}
+
+
+.imgAntiacidos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antiácido.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 80%;
+    transform: translateY(-30%);
+}
+
+.imgAntialergicos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antialergico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 20%;
+    transform: translateY(-30%);
+}
+
+
+.imgAntibioticos {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/antibiotico.jpg) no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+    left: 0;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-position: center 70%;
+    transform: translateY(-30%);
+  
+}
+
+
+
+
+
+
+.h1Curiosidades {
+    text-align: center;
+    color: white;
+    padding: 5em;
+    font-size: 60px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.h3Curiosidades {
+    font-size: 36px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top:2em;
+}
+
+.h5Curiosidades {
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#textoPrincipal {
+    margin-left:20em;
+    margin-right:20em;
+    margin-top: 5em;
+}
+.textoInfo {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+
+
+/*CARDS*/
+.wrapper {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 350px;
+    text-align: center;
+    margin-left: 12em;
+    margin-right: 12em;
+    
+   
+}
+
+.p {
+  background-color:black;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.icon {
+    background: #1E3C40;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.icone {
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15%;
+}
+
+
+.saber {
+    text-decoration: none;
+    color: black;
+    text-decoration: 2px underline #698c8c;
+}
+
+
+    .saber:hover {
+        text-decoration: underline;
+    }
+
+
+/* CARD COMPONENT */
+
+.card2 {
+    margin: 5%;
+    display: grid;
+    place-items: center;
+    width: 80vw;
+    max-width: 21.875rem;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+    .card2 > * {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+
+.card2__content a{
+    text-decoration: none;
+    color:black;
+}
+
+.card2__background {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+}
+
+.card2__content {
+    --flow-space: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    height: 300px;
+    padding: 12% 1.25rem 1.875rem;
+    background: linear-gradient( 180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.1) 10%, hsl(0, 0%, 0%) 100% );
+}
+
+.card2__content--container {
+    --flow-space: 1.25rem;
+}
+
+.card2__title {
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+}
+
+    .card2__title::after {
+        content: "";
+        position: absolute;
+        height: 0.3125rem;
+        width: calc(100% + 1.25rem);
+        bottom: calc((1.25rem - 0.5rem) * -1);
+        left: -1.25rem;
+        background-color: #bfe4e9;
+        
+    }
+
+.card2__button {
+    margin-top: 0.1rem;
+    padding: 0.75em 1.6em;
+    width: fit-content;
+    width: -moz-fit-content;
+    font-variant: small-caps;
+    font-weight: bold;
+    border-radius: 0.45em;
+    border: none;
+    background-color: #bfe4e9;
+    
+    font-family: var(--font-title);
+    font-size: 1.125rem;
+    color: var(--black);
+}
+
+    .card2__button:focus {
+        outline: 1px solid black;
+        outline-offset: -5px;
+    }
+
+@media (any-hover: hover) and (any-pointer: fine) {
+    .card2__content {
+        transform: translateY(62%);
+        transition: transform 500ms ease-out;
+        transition-delay: 500ms;
+    }
+
+    .card2__title::after {
+        opacity: 0;
+        transform: scaleX(0);
+        transition: opacity 1000ms ease-in, transform 500ms ease-out;
+        transition-delay: 500ms;
+        transform-origin: right;
+    }
+
+    .card2__background {
+        transition: transform 500ms ease-in;
+    }
+
+    .card2__content--container > :not(.card2__title),
+    .card2__button {
+        opacity: 0;
+        transition: transform 500ms ease-out, opacity 500ms ease-out;
+    }
+
+    .card2:hover,
+    .card2:focus-within {
+        transform: scale(1.05);
+        transition: transform 500ms ease-in;
+    }
+
+        .card2:hover .card2__content,
+        .card2:focus-within .card2__content {
+            transform: translateY(0);
+            transition: transform 500ms ease-in;
+        }
+
+        .card2:focus-within .card2__content {
+            transition-duration: 0ms;
+        }
+
+        .card2:hover .card2__background,
+        .card2:focus-within .card2__background {
+            transform: scale(1.3);
+        }
+
+        .card2:hover .card2__content--container > :not(.card2__title),
+        .card2:hover .card2__button,
+        .card2:focus-within .card2__content--container > :not(.card2__title),
+        .card2:focus-within .card2__button {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+            transition-delay: 1000ms;
+        }
+
+        .card2:hover .card2__title::after,
+        .card2:focus-within .card2__title::after {
+            opacity: 1;
+            transform: scaleX(1);
+            transform-origin: left;
+            transition: opacity 500ms ease-in, transform 500ms ease-in;
+            transition-delay: 500ms;
+        }
+
+    .card2__description {
+        color: white;
+    }
+
+    .card2__title {
+        color: white;
+    }
+
+    /*-----------------------------------------------------------*/
+
+    #corpoCard2 {
+        font-family: "Poppins", sans-serif;
+        background-color: #fafafa;
+        height:10em;
+    }
+    #corpoCard2 h1{
+        margin-top:1.2em;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card02 {
+        border-radius: 5px;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        padding: 30px;
+        margin: 20px;
+        width: 400px;
+        transition: all 0.3s ease-out;
+    }
+
+        .card02:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+
+        .card02 p {
+            color: #a3a5ae;
+            font-size: 16px;
+        }
+
+    .image {
+        float: right;
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    .blue {
+        border-left: 3px solid #4895ff;
+    }
+}
+
+/*FIM CARDS*/
+/*------------------------------------------------------------------CARD------------------------------------------------*/
