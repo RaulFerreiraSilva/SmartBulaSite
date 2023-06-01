@@ -21,12 +21,10 @@ namespace SmartBulaSite.Controllers
         }
 
         //Metodo responsavel para ligar uma alergia a um usuario. 
-        [HttpGet("AlergiaUsuario")]
-        public IActionResult alergiaUsuario(int id_Usuario, String tipoAlergia)
+        [HttpPost("AlergiaUsuario")]
+        public IActionResult alergiaUsuario(int id_Usuario, int id_Alergia)
         {
-            Alergia alergia = JsonConvert.DeserializeObject<Alergia>(tipoAlergia);
-
-            return Ok(alergia.alergiaUsuario(id_Usuario));
+            return Ok(Alergia.alergiaUsuario(id_Usuario, id_Alergia));
         }
 
         //Metodo responsavel para listar as alergias.  

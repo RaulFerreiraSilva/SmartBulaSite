@@ -69,7 +69,7 @@ namespace SmartBulaSite.Models
             try {
                 if (!(con.State == System.Data.ConnectionState.Open))
                     con.Open();
-                MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, contra_indicacao, recomendado_para, principio_ativo, FK_USUARIO_id_usuario FROM medicamento INNER JOIN medicamento_favorito ON FK_USUARIO_id_usuario = @id_usuario; ", con);
+                MySqlCommand query = new MySqlCommand("SELECT id_medicamento, bula, resumo_bula, contra_indicacao, recomendado_para, principio_ativo FROM MEDICAMENTO_FAVORITO, medicamento, usuario where FK_USUARIO_id_usuario = @id_usuario and id_medicamento = fk_medicamento_id_medicamento and fk_usuario_id_usuario = id_usuario; ", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
                 MySqlDataReader reader = query.ExecuteReader(); //Executa script para selecionar todos os medicamentos favoritados pelo usuario.
 

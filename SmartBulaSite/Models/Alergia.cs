@@ -39,12 +39,12 @@ namespace SmartBulaSite.Models
             }
         }
 
-        public Boolean alergiaUsuario(int id_Usuario) {
+        public static Boolean alergiaUsuario(int id_Usuario, int id_Alergia) {
             try {
                 con.Open();
                 MySqlCommand query = new MySqlCommand("INSERT INTO alergia_usuario (FK_ALERGIA_id_alergia, FK_USUARIO_id_usuario) VALUES(@id_alergia,@id_usuario)", con);
                 query.Parameters.AddWithValue("@id_usuario", id_Usuario);
-                query.Parameters.AddWithValue("@id_alergia", this.id_Alergia);
+                query.Parameters.AddWithValue("@id_alergia", id_Alergia);
                 query.ExecuteReader();//Executa o script de cadastrar uma alergia ao um usuario. 
 
                 con.Close();
@@ -85,7 +85,7 @@ namespace SmartBulaSite.Models
             try
             {
                 con.Open();
-                MySqlCommand query = new MySqlCommand("SELECT id_alergia, tipo_alergia, FK_USUARIO_id_usuario FROM alergia INNER JOIN alergia_usuario ON FK_USUARIO_id_usuario = @id_usuario", con);
+                MySqlCommand query = new MySqlCommand("SELECT id_alergia, tipo_alergia FROM alergia_usuario, alergia, usuario where FK_USUARIO_id_usuario = @id_usuario and id_alergia = fk_alergia_id_alergia and fk_usuario_id_usuario = id_usuario;", con);
                 query.Parameters.AddWithValue("@id_usuario", usuarioId);
                 List<Alergia> lista = new List<Alergia>();//Cria uma lista de Alergias vazias, para receber as alergias do usuario vindas do banco.
                 MySqlDataReader reader = query.ExecuteReader();//Executa o script de busca de alergias do usuario do banco.
