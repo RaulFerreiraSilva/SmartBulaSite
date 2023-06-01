@@ -762,9 +762,15 @@ i {
     margin-top: 3em;
     margin-right: 6em;
     text-align: center;
-    padding-bottom: 3em;
 }
 
+.p_qm2 {
+    margin-left: 6em;
+    margin-top: 0.5em;
+    margin-right: 6em;
+    text-align: center;
+    padding-bottom: 3em;
+}
 
 
 ::-webkit-scrollbar {
