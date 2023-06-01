@@ -19,11 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
+///////////////////////////////////////////////////////////
 
 //Coloca o botão em uma varivel
 var btn_subir = $(".btn");
-
 
 //Faz a primeira verificacao ao carregar a pagina
 $(document).ready(function () {
@@ -53,13 +52,46 @@ btn_subir.click(function () {
 })
 
 
+/////////////////////////botão tamanho fonte/////////////////////////////////
+
+
+//Coloca o botão em uma varivel
+var btn_Fonte = $(".btn_tamhoFonte");
+
+//Faz a primeira verificacao ao carregar a pagina
+$(document).ready(function () {
+    var minhaposicao = $(this).scrollTop();
+    if (minhaposicao >= 100) {
+        btn_Fonte.fadeIn();
+    }
+    else {
+        btn_Fonte.fadeOut();
+    }
+});
+
+//Fica monitorando a rolagem de pagina
+$(window).scroll(function () {
+    var minhaposicao = $(this).scrollTop();
+
+    if (minhaposicao >= 100) {
+        btn_Fonte.fadeIn();
+    }
+    else {
+        btn_Fonte.fadeOut();
+    }
+});
+
+btn_Fonte.click(function () {
+    $('html,body').animate({ scrollTop: 0 }, 500);
+})
+
 //////////////////////////////////////////////////////////
 
 
 const videoPlayer = document.getElementById("videoPlayer");
 
 videoPlayer.addEventListener('timeupdate', function (event) {
-    if (videoPlayer.currentTime >= 20) { //defina traves de segundos. Ex: 120s = 2 minutos do video
+    if (videoPlayer.currentTime >= 40) { //defina traves de segundos. Ex: 120s = 2 minutos do video
         document.querySelector('.text_baixar').style.display = "block";
     } else {
         document.querySelector('.text_baixar').style.display = "none";
@@ -79,9 +111,6 @@ $('.switch label').on('click', function () {
 });
 
 //////////////////////////////////////////////////////////
-
-
-
 
 function selectOption(option) {
     var buttons = document.querySelectorAll('.button');
@@ -103,13 +132,13 @@ function selectOption(option) {
 }
 
 ////////////////////////////////////////////////////////////////
-// Aguardar 6 segundos
-setTimeout(function () {
-    // Remover a tela de loading
-    document.querySelector('.loading-screen').style.display = 'none';
-    // Exibir a tela de home
-    document.querySelector('.home-screen').style.display = 'block';
-}, 5000);
+//// Aguardar 6 segundos
+//setTimeout(function () {
+//    // Remover a tela de loading
+//    document.querySelector('.loading-screen').style.display = 'none';
+//    // Exibir a tela de home
+//    document.querySelector('.home-screen').style.display = 'block';
+//}, 5000);
 
 
 

@@ -78,9 +78,6 @@ body {
    /* overflow-x: hidden;*/
 }
 
-
-
-
 #home {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../images/fundo.jpg);
     background-repeat: no-repeat;
@@ -788,14 +785,13 @@ i {
     justify-content: center;
     align-items: center;
     position: fixed;
-    bottom: 10px;
+    bottom: 5%;
     right: 10px;
     width: 50px;
     height: 50px;
     background-color: #698c8c;
     text-decoration: none;
     border-radius: 30px;
-    
 }
 
     .btn::after {
@@ -947,7 +943,8 @@ i {
     color: black;
     margin-top: 3em;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 #bulaResumida {
@@ -1176,8 +1173,53 @@ span {
 }
 
 
-/*tamanho datalist fonte bula*/
 
+
+#bulaResumida h1 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaResumida h2 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaResumida p {
+    color: black;
+}
+
+
+#bulaResumida h3 {
+    color: black;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+
+
+#bulaResumida {
+    color: black;
+    margin: 5em;
+    width: 90%;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: inherit;
+}
+
+
+
+
+
+/*tamanho datalist fonte bula*/
+.btn_tamanhoFonte {
+    left: 1%;
+    bottom: 5%;
+    position: fixed;
+}
 
 #fonteMaior {
     font-weight: bold;
@@ -1185,10 +1227,14 @@ span {
     border-radius: 50px;
     border: none;
     background-color: #b4d2d9;
-    padding: 15px;
     cursor: pointer;
     outline: none;
+    font-family: 'Ubuntu';
+    margin-right: 5px;
+    height: 60px;
+    width: 60px;
 }
+
 
 
 #fonteMenor {
@@ -1197,10 +1243,13 @@ span {
     border-radius: 30px;
     border: none;
     background-color: #b4d2d9;
-    padding: 15px;
     cursor: pointer;
     outline: none;
+    font-family: 'Ubuntu';
+    width: 60px;
+    height: 60px;
 }
+
 
 
 /*---------------------tela loading-------------------------*/
@@ -1230,7 +1279,16 @@ span {
 
 
 
+.audio-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+}
 
-
- 
+.audio-element {
+    display: none;
+}
  
