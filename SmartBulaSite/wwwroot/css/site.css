@@ -72,6 +72,7 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+
 body {
     margin: 0;
    /* overflow-x: hidden;*/
@@ -343,6 +344,61 @@ i {
     padding: 15%;
 }
 
+.saber {
+    color: black;
+    text-decoration: revert;
+    text-underline-position: under;
+}
+
+    .saber:hover {
+        text-decoration: underline;
+        color: #698c8c;
+    }
+
+/* Responsividade CARDS Home */
+@media screen and (max-width: 1880px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .p {
+        width: 100%;
+    }
+}
+/*.wrapper {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 310px;
+    text-align: center;
+    margin-left: 12em;
+    margin-right: 12em;
+    margin-bottom: 10em;
+}
+
+.p {
+    width: 250px;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.icon {
+    background: #1E3C40;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.icone {
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15%;
+}
+
 
 .saber {
     color: black;
@@ -355,7 +411,7 @@ i {
         text-decoration: underline;
         color: #698c8c;
     }
-
+*/
 /*FIM CARDS*/
 /*------------------------------------------------------------------CARD------------------------------------------------*/
 
@@ -459,6 +515,8 @@ i {
         outline: 2px solid black;
         outline-offset: -5px;
     }
+
+
 
 @media (any-hover: hover) and (any-pointer: fine) {
     .card__content {
