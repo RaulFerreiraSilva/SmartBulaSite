@@ -4,19 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const fonteMaior = document.getElementById("fonteMaior");
     const fonteMenor = document.getElementById("fonteMenor");
     const texto = document.getElementById("bulaCompleta");
+    const texto2 = document.getElementById("bulaResumida");
 
     fonteMaior.addEventListener("click", function () {
         const fontSize = window.getComputedStyle(texto).fontSize;
         const newSize = parseFloat(fontSize) + 2;
         texto.style.fontSize = newSize + "px";
+        texto2.style.fontSize = newSize + "px";
     });
 
     fonteMenor.addEventListener("click", function () {
         const fontSize = window.getComputedStyle(texto).fontSize;
         const newSize = parseFloat(fontSize) - 2;
         texto.style.fontSize = newSize + "px";
+        texto2.style.fontSize = newSize + "px";
     });
-
 });
 
 ///////////////////////////////////////////////////////////

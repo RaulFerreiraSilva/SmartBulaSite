@@ -15,14 +15,13 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light module parallax">
             <div class="container">
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="logo"><img src="~/images/logo.png" alt="#" /></a>
-                <div>
-                    <ul class="navbar-nav">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="logo"><img src="~/images/logo.png" alt="#" class="logoImg"/></a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="linkBar" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
@@ -33,31 +32,16 @@
                             <a class="linkBar" asp-area="" asp-fragment="fundo2_qm" asp-controller="Home" asp-action="Index">Quem  Somos</a>
                         </li>
                     </ul>
-
+                    <div id="btnDonwload">
+                        <i class="fa-brands fa-google-play iconStore" style="color: #000000;"></i>
+                        <a asp-fragment="baixar">Donwload</a>
+                    </div>
                 </div>
-
-                <div id="btnDonwload">
-                    <i class="fa-brands fa-google-play iconStore" style="color: #000000;"></i>
-                    <a asp-fragment="baixar">Donwload</a>
-                </div>
-
             </div>
-
-
-            @*<section class="loading-screen">
-                <video id="videoLoading" playsinline autoplay muted loop src="~/images/loading.mp4"></video>
-                <br />
-
-            </section>
-            <div class="home-screen">
-
-            </div>*@
-
-
         </nav>
     </section>
 
-    <div class="">
+    <div>
         <main role="main">
             @RenderBody()
         </main>
