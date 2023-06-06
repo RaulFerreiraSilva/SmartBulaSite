@@ -43,7 +43,7 @@ namespace SmartBulaSite.Controllers
                 string extensao = System.IO.Path.GetExtension(arq.FileName);
 
                 if (tipoArquivo.Contains("image"))
-                {//se for imagem eu vou gravar no banco
+                {
                     MemoryStream s = new MemoryStream();
                     arq.CopyTo(s);
                     byte[] bytesArquivo = s.ToArray();
@@ -54,7 +54,7 @@ namespace SmartBulaSite.Controllers
                     // Acessar a lista de objetos "words"
                     JArray words = (JArray)json["readResult"]["pages"][0]["words"];
 
-                    // Iterar sobre a lista de objetos "words" e acessar o campo "content" de cada objeto
+                    // Percorre a lista de objetos "words" e acessar o campo "word" de cada objeto
                     foreach (JObject word in words)
                     {
                         string principio = (string)word["content"]; // Coloca as palavras presentes no contente dentro da variavel principio.
@@ -94,7 +94,7 @@ namespace SmartBulaSite.Controllers
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream"); // Avisa a api que ela ira receber um arquivo.
                 response = await client.PostAsync(uri, content);//Utiliza o meotodo HttpClient(), para realizar a consulta na api da azure, com a url e a imagem, convertida em um array de Bytes.
-                string responseSucess = await response.Content.ReadAsStringAsync();// realiza a consulta na api da azure.
+                string responseSucess = await response.Content.ReadAsStringAsync();// Extrai o resultado da consulta da api.
                 return responseSucess;
             }
         }
